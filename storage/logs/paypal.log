@@ -1,0 +1,131 @@
+[12-01-2019 16:42:57] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[12-01-2019 16:42:58] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[12-01-2019 16:42:58] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payouts?sync_mode=true
+[12-01-2019 16:42:59] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 403
+[12-01-2019 16:42:59] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 403 when accessing https://api.sandbox.paypal.com/v1/payments/payouts?sync_mode=true. {"name":"SYNC_MODE_NOT_APPLICABLE","debug_id":"19ddcbeaf61e","message":"Synchronous mode will soon be deprecated and is no longer available for new integrations. You can use the asynchronous mode by specifying sync_mode= false in the request.","information_link":"https://developer.paypal.com/docs/api/payments.payouts-batch/#errors"}
+[12-01-2019 16:44:20] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[12-01-2019 16:44:36] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[12-01-2019 16:44:36] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payouts?sync_mode=false
+[12-01-2019 16:44:37] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[12-01-2019 16:44:37] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[12-01-2019 16:44:39] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[12-01-2019 16:44:39] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payouts/2VHNZRWGTTX3C
+[12-01-2019 16:44:40] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[12-01-2019 16:44:40] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[12-01-2019 16:44:41] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[12-01-2019 16:44:41] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payouts/2VHNZRWGTTX3C
+[12-01-2019 16:44:42] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[12-01-2019 16:44:59] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[12-01-2019 16:45:00] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[12-01-2019 16:45:00] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payouts?sync_mode=false
+[12-01-2019 16:45:01] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[12-01-2019 16:45:01] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[12-01-2019 16:45:02] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[12-01-2019 16:45:02] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payouts/ZXDLLUWWP59KU
+[12-01-2019 16:45:18] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[12-01-2019 21:44:21] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[12-01-2019 21:44:27] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[12-01-2019 21:44:27] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payouts?sync_mode=false
+[12-01-2019 21:44:29] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[12-01-2019 21:44:29] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[12-01-2019 21:44:36] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[12-01-2019 21:44:36] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payouts/J8G9XHQ3H72TQ
+[12-01-2019 21:44:40] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[15-01-2019 17:30:14] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[15-01-2019 17:30:15] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[15-01-2019 17:30:15] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[15-01-2019 17:30:17] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[15-01-2019 17:30:42] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[15-01-2019 17:30:43] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[15-01-2019 17:30:43] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment/PAY-71G75246S71261821LQ7BRKI
+[15-01-2019 17:30:44] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[15-01-2019 17:30:44] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment/PAY-71G75246S71261821LQ7BRKI/execute
+[15-01-2019 17:30:55] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[15-01-2019 17:36:10] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[15-01-2019 17:36:10] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[15-01-2019 17:36:10] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[15-01-2019 17:36:14] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[15-01-2019 17:36:31] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[15-01-2019 17:36:31] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[15-01-2019 17:36:31] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment/PAY-1G105355JF426105FLQ7BUDQ
+[15-01-2019 17:36:32] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[15-01-2019 17:36:32] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment/PAY-1G105355JF426105FLQ7BUDQ/execute
+[15-01-2019 17:36:35] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[15-01-2019 17:36:58] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[15-01-2019 17:36:59] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[15-01-2019 17:36:59] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[15-01-2019 17:37:00] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[15-01-2019 17:37:12] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[15-01-2019 17:37:13] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[15-01-2019 17:37:13] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment/PAY-5XK14736D4577501BLQ7BUPA
+[15-01-2019 17:37:14] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[15-01-2019 17:37:14] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment/PAY-5XK14736D4577501BLQ7BUPA/execute
+[15-01-2019 17:37:19] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[15-01-2019 17:37:42] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[15-01-2019 17:37:43] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[15-01-2019 17:37:43] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[15-01-2019 17:37:45] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[15-01-2019 17:37:57] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[15-01-2019 17:37:58] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[15-01-2019 17:37:58] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment/PAY-50M40104LG713483YLQ7BU2I
+[15-01-2019 17:37:59] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[15-01-2019 17:37:59] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment/PAY-50M40104LG713483YLQ7BU2I/execute
+[15-01-2019 17:38:02] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[15-01-2019 17:38:42] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[15-01-2019 17:38:48] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[15-01-2019 17:38:48] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[15-01-2019 17:38:49] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[15-01-2019 17:39:00] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[15-01-2019 17:39:01] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[15-01-2019 17:39:01] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment/PAY-7HM98524H20405239LQ7BVKI
+[15-01-2019 17:39:13] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[15-01-2019 17:39:13] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment/PAY-7HM98524H20405239LQ7BVKI/execute
+[15-01-2019 17:39:15] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[15-01-2019 17:39:24] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[15-01-2019 17:39:25] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[15-01-2019 17:39:25] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[15-01-2019 17:39:27] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[15-01-2019 17:39:39] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[15-01-2019 17:39:45] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[15-01-2019 17:39:45] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment/PAY-9HB5771667419510HLQ7BVTY
+[15-01-2019 17:39:47] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[15-01-2019 17:39:47] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment/PAY-9HB5771667419510HLQ7BVTY/execute
+[15-01-2019 17:39:52] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[15-01-2019 17:40:07] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[15-01-2019 17:40:08] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[15-01-2019 17:40:08] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[15-01-2019 17:40:10] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[15-01-2019 17:40:22] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[15-01-2019 17:40:23] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[15-01-2019 17:40:23] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment/PAY-3RY58453RC6303151LQ7BV6Q
+[15-01-2019 17:40:24] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[15-01-2019 17:40:24] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment/PAY-3RY58453RC6303151LQ7BV6Q/execute
+[15-01-2019 17:40:27] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[17-01-2019 11:38:40] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[17-01-2019 11:38:41] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[17-01-2019 11:38:41] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payouts?sync_mode=false
+[17-01-2019 11:38:43] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[17-01-2019 11:38:43] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[17-01-2019 11:38:44] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[17-01-2019 11:38:44] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payouts/3DQQ9Z5WNCWLL
+[17-01-2019 11:38:45] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[17-01-2019 11:38:45] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[17-01-2019 11:38:46] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[17-01-2019 11:38:46] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payouts/3DQQ9Z5WNCWLL
+[17-01-2019 11:38:47] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[17-01-2019 11:40:29] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[17-01-2019 11:40:30] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[17-01-2019 11:40:30] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payouts/3DQQ9Z5WNCWLL
+[17-01-2019 11:40:31] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[26-01-2019 00:38:09] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[26-01-2019 00:38:10] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[26-01-2019 00:38:10] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payouts?sync_mode=false
+[26-01-2019 00:38:12] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[26-01-2019 00:38:12] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[26-01-2019 00:38:13] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[26-01-2019 00:38:13] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payouts/R9YTWAZ7HPNKA
+[26-01-2019 00:38:14] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[26-01-2019 00:38:26] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[26-01-2019 00:38:27] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[26-01-2019 00:38:27] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payouts/R9YTWAZ7HPNKA
+[26-01-2019 00:38:28] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200

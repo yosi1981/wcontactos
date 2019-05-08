@@ -79,7 +79,7 @@
                                                     {{$usu->email}}
                                                 </td>
                                                 <td>
-                                                    @if ($usu->status == 0)
+                                                    @if ($usu->activo == 0)
                                                     <span class="label label-sm label-danger">
                                                         Inactivo
                                                     </span>
@@ -90,7 +90,7 @@
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    {{$usu->stringRol->nombre}}
+                                                    {{$usu->tusuario}}
                                                 </td>
                                                 <td>
                                                     <div class="hidden-sm hidden-xs btn-group">

@@ -40,7 +40,7 @@
                     </span>
                 </button>
                 <div class="navbar-header pull-left">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="/<?php echo e(Auth::user()->stringRol->nombre); ?>/dashboard">
                         <small>
                             <i class="fa fa-leaf">
                             </i>
@@ -48,6 +48,7 @@
                         </small>
                     </a>
                 </div>
+                <!--
                 <div class="navbar-buttons navbar-header pull-right" role="navigation">
                     <ul class="nav ace-nav">
                         <li class="grey dropdown-modal">
@@ -373,8 +374,7 @@
                                 <li class="divider">
                                 </li>
                                 <li>
-                                    <a href="/logout">
-                                        <i class="ace-icon fa fa-power-off">
+                                    <a href="/logout                                <i class="ace-icon fa fa-power-off">
                                         </i>
                                         Logout
                                     </a>
@@ -383,6 +383,7 @@
                         </li>
                     </ul>
                 </div>
+            -->
             </div>
             <!-- /.navbar-container -->
         </div>
@@ -395,34 +396,11 @@
                     try{ace.settings.loadState('sidebar')}catch(e){}
                 </script>
                 <div class="sidebar-shortcuts" id="sidebar-shortcuts">
-                    <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-                        <button class="btn btn-success">
-                            <i class="ace-icon fa fa-signal">
-                            </i>
-                        </button>
-                        <button class="btn btn-info">
-                            <i class="ace-icon fa fa-pencil">
-                            </i>
-                        </button>
-                        <button class="btn btn-warning">
-                            <i class="ace-icon fa fa-users">
-                            </i>
-                        </button>
-                        <button class="btn btn-danger">
-                            <i class="ace-icon fa fa-cogs">
-                            </i>
-                        </button>
-                    </div>
-                    <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
-                        <span class="btn btn-success">
-                        </span>
-                        <span class="btn btn-info">
-                        </span>
-                        <span class="btn btn-warning">
-                        </span>
-                        <span class="btn btn-danger">
-                        </span>
-                    </div>
+
+<?php echo $__env->make('layouts.includes.'.Auth::user()->stringRol->nombre . '.infouser', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+            </div>
+
                 </div>
                 <?php echo $__env->yieldContent('barraizda'); ?>
                 <!--<ul class="nav nav-list">

@@ -1995,7 +1995,8 @@ body.mob-safari .sidebar.sidebar-fixed {
     display: none
 }
 .sidebar .sidebar-shortcuts-large {
-    line-height: 37px
+    line-height: 100px;
+    background-color:#F2F2F2;
 }
 .sidebar .sidebar-shortcuts-large>.btn {
     text-align: center;

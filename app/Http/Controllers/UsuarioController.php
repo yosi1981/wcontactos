@@ -128,7 +128,7 @@ class UsuarioController extends Controller
         } else {
 
             if ($usuarioeditar->stringRol->nombre == "anunciante") {
-                if ($useractual->tipo_usuario == 1 and $useractual->id == $usereditar->id) {
+                if ($useractual->tipo_usuario == 1 and $useractual->id == $usuarioeditar->id) {
                     return view($useractual->stringRol->nombre . ".usuario.editUsuario.edit", ["usuario" => $usuarioeditar]);
                 } else {
                     $usuarioanun = Useranunciante::findorfail($usuarioeditar->id);
@@ -234,11 +234,13 @@ class UsuarioController extends Controller
              */
             $useractual = Auth::user();
             if ($useractual->tipo_usuario == 4) {
-                $usuarios = User::where('name', 'LIKE', '%' . $request->get('searchText') . '%')
-                    ->orderBy('name', 'asc')
+                $usuarios = DB::table('users')
+                    ->select('users.id', 'users.name', 'users.email', 'users.status as activo','tipos_usuario.descripcion as tusuario')
+                    ->join('tipos_usuario','users.tipo_usuario','=','tipos_usuario.id')
+                    ->where('users.name', 'LIKE', '%' . $request->get('searchText') . '%')
+                    ->orderBy('users.name', 'asc')
                     ->paginate(5);
-                $menu = $this->MenuIzquierdo();
-                return view($useractual->stringRol->nombre . '.usuario.index', ["usuarios" => $usuarios, "searchText" => $query, "menu" => $menu]);
+                return view($useractual->stringRol->nombre . '.usuario.index', ["usuarios" => $usuarios, "searchText" => $query]);
             } else {
 
                 $usuarios = DB::table('users')
@@ -251,7 +253,6 @@ class UsuarioController extends Controller
 
                 return view($useractual->stringRol->nombre . '.usuario.index', ["usuarios" => $usuarios, "searchText" => $query]);
             }
-
         }
 
     }

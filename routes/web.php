@@ -56,13 +56,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('AP', 'AnuncioProgramadoController');
 
-    Route::resource('/Usuario', 'UsuarioController');
-    Route::get('/crearUsuario', 'UsuarioController@CrearUsuario');
-    Route::get('/EditarUsuario/{id}', 'UsuarioController@edit');
-    Route::get('/ActualizarUsuario/{id}', 'UsuarioController@Actualizar');
-    Route::post('/NuevoUsuario', 'UsuarioController@NuevoUsuario');
-    Route::post('/eliminarUsuario', 'UsuarioController@eliminar');
-    Route::get('/searchUsuario', 'UsuarioController@search');
+ 
 
     Route::get('/home', 'HomeController@index');
     
@@ -189,6 +183,9 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::group(['middleware' => 'Anunciante'], function () {
+    Route::resource('/UsuarioA', 'UsuarioController');
+    Route::get('/anunciante/EditarUsuario/{id}', 'UsuarioController@edit');
+
         Route::get('/anunciante/listarPendienteReferidos', 'FacturasController@listarPendienteReferidos');
         Route::get('/anunciante/getUserFacturas', 'FacturasController@getUserFacturas');
         Route::get('/anunciante/VerFactura/{idfactura}', 'FacturasController@VerFactura');

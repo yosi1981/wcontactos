@@ -83,7 +83,7 @@
 
                                                 </td>
                                                 <td>
-                                                    <?php if($usu->status == 0): ?>
+                                                    <?php if($usu->activo == 0): ?>
                                                     <span class="label label-sm label-danger">
                                                         Inactivo
                                                     </span>
@@ -94,7 +94,7 @@
                                                     <?php endif; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo e($usu->stringRol->nombre); ?>
+                                                    <?php echo e($usu->tusuario); ?>
 
                                                 </td>
                                                 <td>

@@ -8,7 +8,7 @@
 <div class="page-content">
     <div class="row">
         <div class="col-xs-12">
-            <?php echo e(Form::open(array('url' => 'NuevoAnuncio','method'=>'POST'), array('role' => 'form','class'=>'form-horizontal'))); ?>
+            <?php echo e(Form::open(array('url' => '/admin/NuevoAnuncio','method'=>'POST'), array('role' => 'form','class'=>'form-horizontal'))); ?>
 
             <div class="form-group">
                 <?php echo e(Form::label('titulo', 'Titulo',array('class'=>'col-sm-3 control-label no-padding-right','for'=>'form-field-1-1'))); ?>

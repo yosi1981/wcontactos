@@ -48,7 +48,7 @@ telegram     = new Api('642406866:AAHMJndO_QhFzliHewOLUvPUtFZOMhjZZtI');
     public function ContratarDias()
     {
         \Session::put('seccion_actual', "ContratarDias");
-        $promociones = Promocion::all();
+        $promociones = Promocion::where('status',1)->get();
         $pagos       = Pago::where('iduser', Auth::user()->id)
             ->orderBy('fecha_pago', 'DESC')
             ->paginate(10);
@@ -277,8 +277,6 @@ telegram     = new Api('642406866:AAHMJndO_QhFzliHewOLUvPUtFZOMhjZZtI');
         //Execute the payment
         $result = $payment->execute($execution, $this->_api_context);
         //echo '
-<pre>';print_r($result);echo '</pre>
-';exit; // DEBUG RESULT, remove it later
         if ($result->getState() == 'approved') {
             // payment made
             $newpaquete               = new Paquete();

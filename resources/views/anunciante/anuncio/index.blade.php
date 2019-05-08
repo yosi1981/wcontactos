@@ -1,6 +1,6 @@
 @extends ('layouts.admin2')
 @section ('barraizda')
-                @include('layouts.includes.barraizda')
+                @include('layouts.includes.'.Auth::user()->stringRol->nombre . '.barraizda')
 @endsection
 @section ('contenido')
 <div class="main-content">
@@ -10,7 +10,7 @@
         <div class="page-content">
             <div class="row">
                 <div class="col-xs-12">
-                    @include('admin.anuncio.includes.modalDelete')
+                    @include(Auth::user()->stringRol->nombre .'.anuncio.includes.modalDelete')
 
 @if(session()->has('msj'))
                     <div class="alert alert-success">
@@ -34,7 +34,7 @@
                             </h6>
                         </div>
                         <div class="breadcrumbs ace-save-state" id="breadcrumbs">
-                            <a href="{{URL::to('/crearAnuncio')}}" padding-left="15px">
+                            <a href="{{URL::to('/anunciante/crearAnuncio')}}" padding-left="15px">
                                 <button class="btn btn-xs btn-white btn-default btn-round">
                                     <i class="ace-icon fa fa-times red2">
                                     </i>
@@ -42,7 +42,7 @@
                                 </button>
                             </a>
                             <div class="nav-search" id="nav-search">
-                                {!! Form::open(array('url'=>'Anuncio','method'=>'GET','class'=>'form-search','autocomplete'=>'off','role'=>'search')) !!}
+                                {!! Form::open(array('url'=>'/anunciante/Anuncio','method'=>'GET','class'=>'form-search','autocomplete'=>'off','role'=>'search')) !!}
                                 <span class="input-icon">
                                     <input autocomplete="off" class="nav-search-input" id="searchText" name="searchText" placeholder="Search ..." type="text">
                                         <i class="ace-icon fa fa-search nav-search-icon">
@@ -99,7 +99,7 @@
                                                 <td>
                                                     <div class="hidden-sm hidden-xs btn-group">
                                                         <button class="btn btn-sm btn-success">
-                                                            <a href="{{URL::to('/Anuncio/'.$anu->idanuncio.'/edit')}}">
+                                                            <a href="{{URL::to('/anunciante/AnuncioA/'.$anu->idanuncio.'/edit')}}">
                                                                 <i class="ace-icon fa fa-pencil bigger-120">
                                                                 </i>
                                                             </a>
@@ -112,7 +112,7 @@
                                                         @endif
                         @if ($anu->activo == 1)
                                                         <button class="btn btn-sm btn-warning">
-                                                            <a href="{{URL::to('/listadoCitas/'.$anu->idanuncio)}}">
+                                                            <a href="{{URL::to('/anunciante/listadoCitas/'.$anu->idanuncio)}}">
                                                                 <i class="ace-icon fa fa-calendar bigger-120">
                                                                 </i>
                                                             </a>
@@ -190,7 +190,7 @@
         $value=$(this).val();
         $.ajax({
             type : 'get',
-            url  : "{{URL::to('/searchAnuncio')}}",
+            url  : "{{URL::to('/anunciante/searchAnuncio')}}",
             data : {'searchText' : $value},
             async: true,
             dataType: 'json',
@@ -216,7 +216,7 @@ $(document).ready(function() {
 
     function getAnuncios(page,search)
     {
-        var url="{{URL::to('/searchAnuncio')}}";
+        var url="{{URL::to('/anunciante/searchAnuncio')}}";
         $.ajax({
             type : 'get',
             url  : url+'?page='+page,
@@ -234,7 +234,7 @@ $(document).ready(function() {
         })
         $('.modal-footer').on('click', '.delete', function(e) {
             e.preventDefault();
-            var url="{{URL::to('/eliminarAnuncio')}}";
+            var url="{{URL::to('/anunciante/eliminarAnuncio')}}";
             alert('eliminarAnuncio');
           $.ajax({
             type: 'post',

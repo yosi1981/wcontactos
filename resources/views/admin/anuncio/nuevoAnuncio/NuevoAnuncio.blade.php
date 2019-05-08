@@ -9,7 +9,7 @@
 <div class="page-content">
     <div class="row">
         <div class="col-xs-12">
-            {{ Form::open(array('url' => 'NuevoAnuncio','method'=>'POST'), array('role' => 'form','class'=>'form-horizontal')) }}
+            {{ Form::open(array('url' => '/admin/NuevoAnuncio','method'=>'POST'), array('role' => 'form','class'=>'form-horizontal')) }}
             <div class="form-group">
                 {{ Form::label('titulo', 'Titulo',array('class'=>'col-sm-3 control-label no-padding-right','for'=>'form-field-1-1')) }}
                 <div class="col-sm-9">

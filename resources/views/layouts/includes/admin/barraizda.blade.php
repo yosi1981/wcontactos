@@ -30,14 +30,14 @@
 </span>
                             </a>
 <ul class="submenu">
-<?php $seccion = \Session::get('seccion_actual');if ($seccion === "promociones") {echo "<li class='active open' style='text-align: left;'>";} else {echo "<li style='text-align: left;'>";}?><a href="/admin/Promocion">
+<?php $seccion = \Session::get('seccion_actual');if ($seccion === "promociones") {echo "<li class='active open' style='text-align: left;'>";} else {echo "<li style='text-align: left;'>";}?><a href="{{URL::to('/admin/Promocion')}}">
 
                                         <i class="menu-icon fa fa-arrow-right">
                                         </i>
                                         <span class="menu-text">Promociones</span>
                                         </a>
 </li>
-<?php $seccion = \Session::get('seccion_actual');if ($seccion === "paquetescontratados") {echo "<li class='active open' style='text-align: left;'>";} else {echo "<li style='text-align: left;'>";}?><a href="/admin/paquete">
+<?php $seccion = \Session::get('seccion_actual');if ($seccion === "paquetescontratados") {echo "<li class='active open' style='text-align: left;'>";} else {echo "<li style='text-align: left;'>";}?><a href="{{URL::to('/admin/paquete')}}">
 
                                         <i class="menu-icon fa fa-arrow-right">
                                         </i>
@@ -53,14 +53,14 @@
 </span>
                             </a>
 <ul class="submenu">
-<?php $seccion = \Session::get('seccion_actual');if ($seccion === "Anuncio") {echo "<li class='active open' style='text-align: left;'>";} else {echo "<li style='text-align: left;'>";}?><a href="/Anuncio">
+<?php $seccion = \Session::get('seccion_actual');if ($seccion === "Anuncio") {echo "<li class='active open' style='text-align: left;'>";} else {echo "<li style='text-align: left;'>";}?><a href="{{URL::to('/admin/Anuncio')}}">
 
                                         <i class="menu-icon fa fa-arrow-right">
                                         </i>
                                         <span class="menu-text">Modelos</span>
                                         </a>
 </li>
-<?php $seccion = \Session::get('seccion_actual');if ($seccion === "AnuncioP") {echo "<li class='active open' style='text-align: left;'>";} else {echo "<li style='text-align: left;'>";}?><a href="/admin/listarAnunciosProgramados">
+<?php $seccion = \Session::get('seccion_actual');if ($seccion === "AnuncioP") {echo "<li class='active open' style='text-align: left;'>";} else {echo "<li style='text-align: left;'>";}?><a href="{{URL::to('/admin/listarAnunciosProgramados')}}">
 
                                         <i class="menu-icon fa fa-arrow-right">
                                         </i>
@@ -76,7 +76,7 @@
 </span>
                             </a>
 <ul class="submenu">
-<?php $seccion = \Session::get('seccion_actual');if ($seccion === "editmenu") {echo "<li class='active open' style='text-align: left;'>";} else {echo "<li style='text-align: left;'>";}?><a href="/admin/editmenu">
+<?php $seccion = \Session::get('seccion_actual');if ($seccion === "editmenu") {echo "<li class='active open' style='text-align: left;'>";} else {echo "<li style='text-align: left;'>";}?><a href="{{URL::to('/admin/editmenu/{idmenu?}')}}">
 
                                         <i class="menu-icon fa fa-arrow-right">
                                         </i>
@@ -97,14 +97,6 @@
                                 </i>
                                 <span class="menu-text">
 		CSS
-</span>
-                            </a>
-</li>
-<?php $seccion = \Session::get('seccion_actual');if ( $seccion === "infocuenta") {echo "<li class='active open' style='text-align: left;'>";} else {echo "<li style='text-align: left;'>";}?><a  href="/admin/infocuenta">
-    <i class="menu-icon fa fa-info">
-                                </i>
-                                <span class="menu-text">
-		INFO CUENTA
 </span>
                             </a>
 </li>

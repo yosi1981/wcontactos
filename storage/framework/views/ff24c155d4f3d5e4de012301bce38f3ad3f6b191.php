@@ -9,7 +9,7 @@
         <div class="page-content">
             <div class="row">
                 <div class="col-xs-12">
-                    <?php echo $__env->make('admin.anuncio.includes.modalDelete', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                    <?php echo $__env->make(Auth::user()->stringRol->nombre .'.anuncio.includes.modalDelete', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 <?php if(session()->has('msj')): ?>
                     <div class="alert alert-success">
@@ -33,7 +33,7 @@
                             </h6>
                         </div>
                         <div class="breadcrumbs ace-save-state" id="breadcrumbs">
-                            <a href="<?php echo e(URL::to('/crearAnuncio')); ?>" padding-left="15px">
+                            <a href="<?php echo e(URL::to('/admin/crearAnuncio')); ?>" padding-left="15px">
                                 <button class="btn btn-xs btn-white btn-default btn-round">
                                     <i class="ace-icon fa fa-times red2">
                                     </i>
@@ -41,7 +41,7 @@
                                 </button>
                             </a>
                             <div class="nav-search" id="nav-search">
-                                <?php echo Form::open(array('url'=>'Anuncio','method'=>'GET','class'=>'form-search','autocomplete'=>'off','role'=>'search')); ?>
+                                <?php echo Form::open(array('url'=>'/admin/Anuncio','method'=>'GET','class'=>'form-search','autocomplete'=>'off','role'=>'search')); ?>
 
                                 <span class="input-icon">
                                     <input autocomplete="off" class="nav-search-input" id="searchText" name="searchText" placeholder="Search ..." type="text">
@@ -113,7 +113,7 @@
                                                 <td>
                                                     <div class="hidden-sm hidden-xs btn-group">
                                                         <button class="btn btn-sm btn-success">
-                                                            <a href="<?php echo e(URL::to('/Anuncio/'.$anu->idanuncio.'/edit')); ?>">
+                                                            <a href="<?php echo e(URL::to('/admin/Anuncio/'.$anu->idanuncio.'/edit')); ?>">
                                                                 <i class="ace-icon fa fa-pencil bigger-120">
                                                                 </i>
                                                             </a>
@@ -126,7 +126,7 @@
                                                         <?php endif; ?>
                         <?php if($anu->activo == 1): ?>
                                                         <button class="btn btn-sm btn-warning">
-                                                            <a href="<?php echo e(URL::to('/listadoCitas/'.$anu->idanuncio)); ?>">
+                                                            <a href="<?php echo e(URL::to('/admin/listadoCitas/'.$anu->idanuncio)); ?>">
                                                                 <i class="ace-icon fa fa-calendar bigger-120">
                                                                 </i>
                                                             </a>
@@ -210,7 +210,7 @@
         $value=$(this).val();
         $.ajax({
             type : 'get',
-            url  : '<?php echo e(URL::to('/searchAnuncio')); ?>',
+            url  : '<?php echo e(URL::to('/admin/searchAnuncio')); ?>',
             data : {'searchText' : $value},
             async: true,
             dataType: 'json',
@@ -239,7 +239,7 @@
 
     function getAnuncios(page,search)
     {
-        var url="<?php echo e(URL::to('/searchAnuncio')); ?>";
+        var url="<?php echo e(URL::to('/admin/searchAnuncio')); ?>";
         $.ajax({
             type : 'get',
             url  : url+'?page='+page,
@@ -257,7 +257,7 @@
         })
         $('.modal-footer').on('click', '.delete', function(e) {
             e.preventDefault();
-            var url="<?php echo e(URL::to('/eliminarAnuncio')); ?>";
+            var url="<?php echo e(URL::to('/admin/eliminarAnuncio')); ?>";
           $.ajax({
             type: 'post',
             data: {

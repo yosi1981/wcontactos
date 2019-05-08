@@ -6,11 +6,42 @@
                 </script>
                 <div class="sidebar-shortcuts" id="sidebar-shortcuts" >
                     <ul class="nav nav-list">
-        <?php $seccion = \Session::get('seccion_actual');if ( $seccion === "679730431") {echo "<li class='active open' style='text-align: left;'>";} else {echo "<li style='text-align: left;'>";}?><a  href="/adminProvincia/Provincia">
-    <i class="menu-icon fa fa-500px">
+        <?php $seccion = \Session::get('seccion_actual');if ( $seccion === "anuncio" or  $seccion === "Anuncio" or  $seccion === "AnuncioP") {echo "<li class='active open' style='text-align: left;'>";} else {echo "<li style='text-align: left;'>";}?><a class="dropdown-toggle" href="#">
+    <i class="menu-icon fa fa-amazon">
                                 </i>
                                 <span class="menu-text">
-		EDITOR MENU
+		ANUNCIO
+</span>
+                            </a>
+<ul class="submenu">
+<?php $seccion = \Session::get('seccion_actual');if ($seccion === "Anuncio") {echo "<li class='active open' style='text-align: left;'>";} else {echo "<li style='text-align: left;'>";}?><a href="{{URL::to('/anunciante/AnuncioA')}}">
+
+                                        <i class="menu-icon fa fa-arrow-right">
+                                        </i>
+                                        <span class="menu-text">Modelos</span>
+                                        </a>
+</li>
+<?php $seccion = \Session::get('seccion_actual');if ($seccion === "AnuncioP") {echo "<li class='active open' style='text-align: left;'>";} else {echo "<li style='text-align: left;'>";}?><a href="{{URL::to('/anunciante/listarAnunciosProgramados')}}">
+
+                                        <i class="menu-icon fa fa-arrow-right">
+                                        </i>
+                                        <span class="menu-text">Programados</span>
+                                        </a>
+</li>
+</ul></li>
+<?php $seccion = \Session::get('seccion_actual');if ( $seccion === "ContratarDias") {echo "<li class='active open' style='text-align: left;'>";} else {echo "<li style='text-align: left;'>";}?><a  href="/anunciante/ContratarDias">
+    <i class="menu-icon fa fa-paypal">
+                                </i>
+                                <span class="menu-text">
+		COMPRA DIAS
+</span>
+                            </a>
+</li>
+<?php $seccion = \Session::get('seccion_actual');if ( $seccion === "imagen") {echo "<li class='active open' style='text-align: left;'>";} else {echo "<li style='text-align: left;'>";}?><a  href="/anunciante/Imagen">
+    <i class="menu-icon fa fa-image">
+                                </i>
+                                <span class="menu-text">
+		IMAGEN
 </span>
                             </a>
 </li>

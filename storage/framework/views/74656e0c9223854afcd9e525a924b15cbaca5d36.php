@@ -68,7 +68,6 @@
 
 <script type="text/javascript">
         $(document).on('click','.guardarNuevoitem ',function(e){
-        	alert("prueba");
             $('#imagen2').val($('#imagen option:selected').text());
             $('#ruta2').val($('#ruta option:selected').text());
         });

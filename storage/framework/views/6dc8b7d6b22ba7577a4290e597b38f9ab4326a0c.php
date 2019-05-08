@@ -39,6 +39,7 @@
         });
     $('#idmenu').change(function(event) {
             event.preventDefault();
+      $('#cuerpo').html("");    
       MostrarMenu();
           });
 

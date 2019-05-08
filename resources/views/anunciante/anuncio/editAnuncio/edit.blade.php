@@ -1,13 +1,13 @@
 @extends ('layouts.admin2')
 @section ('barraizda')
-                @include('layouts.includes.barraizda')
+                @include('layouts.includes.'.Auth::user()->stringRol->nombre . '.barraizda')
 @endsection
 @section ('contenido')
 <h1>
     Modificar Anuncio
 </h1>
 <div class="row">
-    {!!Form::model($anuncio,['method'=>'PATCH','route'=>['Anuncio.update',$anuncio->idanuncio]])!!}
+    {!!Form::model($anuncio,['method'=>'PATCH','route'=>['AnuncioA.update',$anuncio->idanuncio]])!!}
     <div class="row">
         <div class="form-group col-md-4">
             {{ Form::label('titulo', 'Titulo') }}

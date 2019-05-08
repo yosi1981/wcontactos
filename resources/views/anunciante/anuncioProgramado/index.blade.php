@@ -1,6 +1,6 @@
 @extends ('layouts.admin2')
 @section ('barraizda')
-                @include('layouts.includes.barraizda')
+                @include('layouts.includes.'.Auth::user()->stringRol->nombre . '.barraizda')
 @endsection
 @section ('contenido')
 <div class="main-content">
@@ -10,7 +10,7 @@
         <div class="page-content">
             <div class="row">
                 <div class="col-xs-12">
-                    @include('admin.anuncioProgramado.includes.modalDelete')
+                    @include(Auth::user()->stringRol->nombre .'.anuncioProgramado.includes.modalDelete')
 
 @if(session()->has('msj'))
                     <div class="alert alert-success">
@@ -74,11 +74,6 @@
                                                     Fecha Final
                                                 </th>
                                                 <th width="10%">
-                                                    <i class="ace-icon fa fa-users-o bigger-110 hidden-480">
-                                                    </i>
-                                                    Usuario
-                                                </th>
-                                                <th width="10%">
                                                     Estado
                                                 </th>
                                                 <th width="30%">
@@ -104,11 +99,6 @@
                                                 </td>
                                                 <td>
                                                     {{$anu->fechafinal}}
-                                                </td>
-                                                <td>
-                                                    <a href="{{URL::to('/Usuario/'.$anu->idusuario.'/edit')}}">
-                                                        {{$anu->NombreUsuario}}
-                                                    </a>
                                                 </td>
                                                 <td class="hidden-480">
                                                     @if ($anu->activo == 0)

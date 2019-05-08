@@ -28,7 +28,6 @@ class AnuncioProgramadoController extends Controller
         $anunProg->fechainicio = $fechaactual;
         $anunProg->fechafinal  = $fechaactual;
         $anunProg->activo      = $anuncio->activo;
-        $anunProg->idlocalidad = $anuncio->idlocalidad;
         $anunProg->idusuario   = $anuncio->idusuario;
         $anunProg->idpelos     = $anuncio->idpelos;
         $anunProg->idojos      = $anuncio->idojos;

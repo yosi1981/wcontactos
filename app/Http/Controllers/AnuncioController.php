@@ -93,8 +93,8 @@ class AnuncioController extends Controller
             //de checkboxes pasados (ids de imagenes pasadas junto al idanuncio)
 
             $anuncio->ImagenesAnuncio()->sync($data);
-
-            return Redirect::to('Anuncio')->with('msj', 'Guardado');
+            return Redirect::to(Auth::user()->stringRol->nombre.'/Anuncio/'.$anuncio->idanuncio.'/edit')->with('msj', 'Guardado');
+            //return Redirect::to('Anuncio')->with('msj', 'Guardado');
         }
 
     }
@@ -110,7 +110,7 @@ class AnuncioController extends Controller
         $pelos     = caracteristica::where('pelo', '!=', '')->pluck('pelo', 'idcaracteristicas');
         $ojos      = caracteristica::where('ojos', '!=', '')->pluck('ojos', 'idcaracteristicas');
         $estaturas = caracteristica::where('estatura', '!=', '')->pluck('estatura', 'idcaracteristicas');
-        $usuarios  = User::pluck('name', 'id');
+        $usuarios  = User::where('tipo_usuario',1)->pluck('name', 'id');
         switch (Auth::user()->stringRol->nombre) {
             case 'admin':
                 return view(Auth::user()->stringRol->nombre . ".anuncio.editAnuncio.edit", ["anuncio" => $anuncio, "usuarios" => $usuarios, "usu" => $anuncio->idusuario, "pelos" => $pelos, "ojos" => $ojos, "estaturas" => $estaturas]);
@@ -120,7 +120,7 @@ class AnuncioController extends Controller
                 if ($anuncio->idusuario === Auth::user()->id) {
                     return view(Auth::user()->stringRol->nombre . ".anuncio.editAnuncio.edit", ["anuncio" => $anuncio, "pelos" => $pelos, "ojos" => $ojos, "estaturas" => $estaturas]);
                 } else {
-                    return Redirect::to('Anuncio');
+                    Redirect::to('/' . Auth::user()->stringRol->nombre . '/Anuncio');
                 }
 
                 break;
@@ -156,14 +156,14 @@ class AnuncioController extends Controller
                 if ($anuncio->idusuario === Auth::user()->id) {
                     $anuncio->update();
                 } else {
-                    return Redirect::to('/Anuncio');
+                    return Redirect::to('/admin/Anuncio');
                 }
                 break;
         }
 
         $anuncio->ImagenesAnuncio()->sync($data);
 
-        return Redirect::to('/Anuncio');
+        return Redirect::to('/admin/Anuncio');
     }
 
     public function search(Request $request)
@@ -179,7 +179,6 @@ class AnuncioController extends Controller
                         ->where('anuncios.titulo', 'LIKE', '%' . $query . '%')
                         ->orderBy('anuncios.titulo', 'asc')
                         ->paginate(5);
-                    $salida = view('admin.anuncio.includes.tablaAnuncios', compact('anuncios', 'searchText'))->render();
                     break;
 
                 case 'anunciante':
@@ -190,13 +189,13 @@ class AnuncioController extends Controller
                         ->where('anuncios.idusuario', '=', Auth::user()->id)
                         ->orderBy('anuncios.titulo', 'asc')
                         ->paginate(5);
-                    $salida = view('anunciante.anuncio.includes.tablaAnuncios', compact('anuncios', 'searchText'))->render();
                     break;
 
             }
 
             if ($anuncios) {
 
+                $salida = view(Auth::user()->stringRol->nombre.'.anuncio.includes.tablaAnuncios', compact('anuncios', 'searchText'))->render();
                 return response()->json($salida);
             }
         }

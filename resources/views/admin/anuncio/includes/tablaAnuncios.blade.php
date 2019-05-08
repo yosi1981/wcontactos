@@ -52,7 +52,7 @@
                 <td>
                     <div class="hidden-sm hidden-xs btn-group">
                         <button class="btn btn-sm btn-success">
-                            <a href="{{URL::to('/Anuncio/'.$anu->idanuncio.'/edit')}}">
+                            <a href="{{URL::to('/admin/Anuncio/'.$anu->idanuncio.'/edit')}}">
                                 <i class="ace-icon fa fa-pencil bigger-120">
                                 </i>
                             </a>
@@ -65,7 +65,7 @@
                         @endif
                         @if ($anu->activo == 1)
                         <button class="btn btn-sm btn-warning">
-                            <a href="{{URL::to('/listadoCitas/'.$anu->idanuncio)}}">
+                            <a href="{{URL::to('/admin/listadoCitas/'.$anu->idanuncio)}}">
                                 <i class="ace-icon fa fa-calendar bigger-120">
                                 </i>
                             </a>

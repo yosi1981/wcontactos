@@ -35,6 +35,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/contacts', 'ContactsController@get');
     Route::get('/conversation/{id}/', 'ContactsController@getMessagesFor');
     Route::post('/conversation/send', 'ContactsController@send');
+
+    /*
     Route::resource('Anuncio', 'AnuncioController');
 
     Route::get('/crearAnuncio', 'AnuncioController@CrearAnuncio');
@@ -43,6 +45,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/NuevoAnuncio', 'AnuncioController@NuevoAnuncio');
     Route::post('/eliminarAnuncio', 'AnuncioController@eliminar');
     Route::get('/searchAnuncio', 'AnuncioController@search');
+    */
 
     Route::get('/listadoCitas/{id}', 'CitaController@listadoCitas');
     Route::get('/CitasAnuncio/{id}', 'CitaController@CitasAnuncio');
@@ -52,6 +55,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/updateCita', 'CitaController@UpdateCita')->name('cita.guardar');
 
     Route::resource('AP', 'AnuncioProgramadoController');
+
     Route::resource('/Usuario', 'UsuarioController');
     Route::get('/crearUsuario', 'UsuarioController@CrearUsuario');
     Route::get('/EditarUsuario/{id}', 'UsuarioController@edit');
@@ -153,13 +157,13 @@ Route::group(['middleware' => 'auth'], function () {
         route::get('/admin/getImagesUser', 'ImagenController@getImagesUser');
         Route::get('/IniciarUsuario/{id}', 'UsuarioController@IniciarSesion');
 
-    Route::resource('/Anuncio', 'AnuncioController');
-   Route::get('/crearAnuncio', 'AnuncioController@CrearAnuncio');
-    Route::post('/EditarAnuncio', 'AnuncioController@EditarAnuncio');
-    Route::post('/ActualizarAnuncio', 'AnuncioController@Actualizar');
-    Route::post('/NuevoAnuncio', 'AnuncioController@NuevoAnuncio');
-    Route::post('/eliminarAnuncio', 'AnuncioController@eliminar');
-    Route::get('/searchAnuncio', 'AnuncioController@search');
+    Route::resource('/admin/Anuncio', 'AnuncioController');
+   Route::get('/admin/crearAnuncio', 'AnuncioController@CrearAnuncio');
+    Route::post('/admin/EditarAnuncio', 'AnuncioController@EditarAnuncio');
+    Route::post('/admin/ActualizarAnuncio', 'AnuncioController@Actualizar');
+    Route::post('/admin/NuevoAnuncio', 'AnuncioController@NuevoAnuncio');
+    Route::post('/admin/eliminarAnuncio', 'AnuncioController@eliminar');
+    Route::get('/admin/searchAnuncio', 'AnuncioController@search');
         });
 
     Route::group(['middleware' => 'Delegado'], function () {
@@ -193,6 +197,14 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/anunciante/listarAnunciosProgramados', 'AnuncioProgramadoController@listarAnunciosProgramados');
         Route::get('/anunciante/searchAP', 'AnuncioProgramadoController@search');
         Route::post('/anunciante/eliminarAP', 'AnuncioProgramadoController@eliminarAP');
+            Route::resource('/anunciante/AnuncioA', 'AnuncioController');
+
+    Route::get('/anunciante/crearAnuncio', 'AnuncioController@CrearAnuncio');
+    Route::post('/anunciante/EditarAnuncio', 'AnuncioController@EditarAnuncio');
+    Route::post('/anunciante/ActualizarAnuncio', 'AnuncioController@Actualizar');
+    Route::post('/anunciante/NuevoAnuncio', 'AnuncioController@NuevoAnuncio');
+    Route::post('/anunciante/eliminarAnuncio', 'AnuncioController@eliminar');
+    Route::get('/anunciante/searchAnuncio', 'AnuncioController@search');
         Route::get('/anunciante/createAnunProLoca/{id}', 'anunciosProgramadosLocalidad@createAnunProLoca');
         Route::post('/anunciante/nuevoAnuncioProLocal', 'anunciosProgramadosLocalidad@nuevoAnuncioProLocal');
         Route::get('/anunciante/getAnunciosProLocal/{id}', 'anunciosProgramadosLocalidad@getAnunciosProLocal');

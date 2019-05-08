@@ -75,8 +75,8 @@ trait trait1
         ";
         $menu=$this->MenuIzquierdo($idmenu);
         $seccion = \Session::get('seccion_actual');
-        if($menu){
             $strmitem="";
+        if($menu){
             foreach($menu->items as $mitem){
                 $cond   = array();
                 $cond[] = $mitem['sesion'];
@@ -135,7 +135,7 @@ trait trait1
                             $strsubitem.="echo \"<li style='text-align: left;'>\";";
                             $strsubitem.="}";
                             $strsubitem.="?>";
-                            $strsubitem.="<a href=\"".$submenu->Ruta."\">\n
+                            $strsubitem.="<a href=\"{{URL::to('".$submenu->Ruta."')}}\">\n
                                         <i class=\"menu-icon fa ".$submenu->imagen."\">
                                         </i>
                                         <span class=\"menu-text\">".$submenu->Titulo."</span>
@@ -190,17 +190,17 @@ trait trait1
                 $nomUsuario='[aA]dmin';
                 break;
            case '2':
-                $nomUsuario='[aA]dminProvincia';
+                $nomUsuario='[aA]nunciante';# code...
                 break;
            case '3':
-                $nomUsuario='[dD]elegado';
+                $nomUsuario='[aA]dminProvincia';
                 break;
            case '4':
                 $nomUsuario='[cC]olaborador';
                 # code...
                 break;
            case '5':
-                $nomUsuario='[aA]nunciante';# code...
+                $nomUsuario='[dD]elegado';
                 break;                            
         }
         $contenido = file_get_contents($routes_path);

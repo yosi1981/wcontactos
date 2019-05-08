@@ -1,6 +1,6 @@
 @extends ('layouts.admin2')
 @section ('barraizda')
-                @include('layouts.includes.barraizda')
+                @include('layouts.includes.'.Auth::user()->stringRol->nombre . '.barraizda')
 @endsection
 @section ('contenido')
 <h1>

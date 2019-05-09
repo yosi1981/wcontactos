@@ -120,7 +120,7 @@
                                             <tr>
                                                 <td align="center" colspan="6">
                                                     <b>
-                                                        No hay resultados en la búsqueda
+                                                        No hay resultados en la búsquedas
                                                     </b>
                                                 </td>
                                             </tr>

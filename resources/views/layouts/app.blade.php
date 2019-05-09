@@ -10,10 +10,10 @@
                             {{ config('app.name', 'Laravel') }}
                         </title>
                         <!-- Styles -->
-                        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-                            <link href="{{asset('/css/ace-rtl.min.css')}}" rel="stylesheet"/>
-                            <link class="ace-main-stylesheet" href="{{asset('/css/ace.min.css')}}" id="main-ace-style" rel="stylesheet"/>
-                            <link class="ace-main-stylesheet" href="{{asset('/css/ace-part2.min.css')}}" rel="stylesheet"/>
+         @include('layouts.styles.styles')
+        <!-- inline styles related to this page -->
+        <!-- ace settings handler -->
+        @include('layouts.scripts.scripts')
                             <!-- Scripts -->
                             <script>
                                 window.Laravel = {!! json_encode([
@@ -47,7 +47,6 @@
             @yield('content')
         </div>
         <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}">
-        </script>
+ 
     </body>
 </html>

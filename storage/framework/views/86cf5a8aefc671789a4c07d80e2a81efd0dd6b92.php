@@ -11,10 +11,10 @@
 
                         </title>
                         <!-- Styles -->
-                        <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
-                            <link href="<?php echo e(asset('/css/ace-rtl.min.css')); ?>" rel="stylesheet"/>
-                            <link class="ace-main-stylesheet" href="<?php echo e(asset('/css/ace.min.css')); ?>" id="main-ace-style" rel="stylesheet"/>
-                            <link class="ace-main-stylesheet" href="<?php echo e(asset('/css/ace-part2.min.css')); ?>" rel="stylesheet"/>
+         <?php echo $__env->make('layouts.styles.styles', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <!-- inline styles related to this page -->
+        <!-- ace settings handler -->
+        <?php echo $__env->make('layouts.scripts.scripts', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                             <!-- Scripts -->
                             <script>
                                 window.Laravel = <?php echo json_encode([
@@ -49,7 +49,6 @@
             <?php echo $__env->yieldContent('content'); ?>
         </div>
         <!-- Scripts -->
-        <script src="<?php echo e(asset('js/app.js')); ?>">
-        </script>
+ 
     </body>
 </html>

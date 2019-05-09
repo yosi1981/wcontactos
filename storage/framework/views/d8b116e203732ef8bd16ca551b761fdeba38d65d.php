@@ -39,67 +39,68 @@
                             <div class="widget-main ">
     <?php echo Form::model($anuncio,['method'=>'PATCH','route'=>['Anuncio.update',$anuncio->idanuncio]]); ?>
 
-    <div class="row">
-        <div class="form-group col-md-4">
-            <?php echo e(Form::label('titulo', 'Titulo')); ?>
+               <div class="row">
+                        <div class="form-group col-md-12">
+                            <?php echo e(Form::label('titulo', 'Titulo',array('class'=>'col-sm-3 control-label no-padding-right','for'=>'form-field-1-1'))); ?>
 
-      <?php echo e(Form::text('titulo', $anuncio->titulo, array('placeholder' => 'Introduce el Titulo', 'class' => 'form-control'))); ?>
+                                <?php echo e(Form::text('titulo',$anuncio->titulo, array('placeholder' => 'Introduce el Titulo', 'class' => ' col-sm-9 form_control'))); ?>
 
-        </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-md-4">
-            <?php echo e(Form::label('descripcion', 'Descripcion')); ?>
+             
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="form-group col-md-12">
+                            <?php echo e(Form::label('descripcion', 'Descripcion',array('class'=>'col-md-3 control-label no-padding-right','for'=>'form-field-1'))); ?>
 
-      <?php echo e(Form::text('descripcion', $anuncio->descripcion, array('placeholder' => 'Introduce la descripción', 'class' => 'form-control'))); ?>
+                                <?php echo e(Form::textarea('descripcion',$anuncio->descripcion, array('placeholder' => 'Introduce la descripción', 'class' => 'col-xs-10 col-sm-9 limited','maxlength'=>'50'))); ?>
 
-        </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-md-4">
-            <?php echo e(Form::label('activo', 'Activo?')); ?>
+                        </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <?php echo e(Form::label('activo', 'Activo?',array('class'=>'col-md-3 control-label no-padding-right'))); ?>
 
-      <?php if($anuncio->activo==1): ?>
-          <?php echo e(Form::checkbox('activo', '1',true)); ?>
+                        <?php if($anuncio->activo==1): ?>
+                              <?php echo e(Form::checkbox('activo', '1',true)); ?>
 
-      <?php else: ?>
-          <?php echo e(Form::checkbox('activo', '0',false)); ?>
+                        <?php else: ?>
+                              <?php echo e(Form::checkbox('activo', '0',false)); ?>
 
-      <?php endif; ?>
-        </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-md-4">
-            <?php echo e(Form::label('Pelo', 'Pelo')); ?>
+                        <?php endif; ?>
+                    </div>
+                </div>    
+                <div class="row">
+                        <div class="form-group col-md-12">
+                                <?php echo e(Form::label('Pelo', 'Pelo',array('class'=>'col-md-3 control-label no-padding-right'))); ?>
 
-      <?php echo Form::select('idpelos',$pelos,$anuncio->idpelo, $attributes = array('class'=>'form-control','id'=>'idpelos')); ?>
+                  <?php echo Form::select('idpelos',$pelos,$anuncio->idpelo, $attributes = array('class'=>'col-md-9 chosen-single chosen-default','id'=>'idpelos')); ?>
 
-        </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-md-4">
-            <?php echo e(Form::label('Ojos', 'Ojos')); ?>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="form-group col-md-12">
+                                <?php echo e(Form::label('Ojos', 'Ojos',array('class'=>'col-md-3 control-label no-padding-right'))); ?>
 
-      <?php echo Form::select('idojos',$ojos,$anuncio->idojos, $attributes = array('class'=>'form-control','id'=>'idojos')); ?>
+                  <?php echo Form::select('idojos',$ojos,$anuncio->idojos, $attributes = array('class'=>'col-md-9 chosen-single chosen-default','id'=>'idojos')); ?>
 
-        </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-md-4">
-            <?php echo e(Form::label('Estatura', 'Estatura')); ?>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="form-group col-md-12">
+                                <?php echo e(Form::label('Estatura', 'Estatura',array('class'=>'col-md-3 control-label no-padding-right'))); ?>
 
-      <?php echo Form::select('idestatura',$estaturas,$anuncio->idestatura, $attributes = array('class'=>'form-control','id'=>'idestatura')); ?>
+                  <?php echo Form::select('idestatura',$estaturas,$anuncio->idestatura, $attributes = array('class'=>'col-md-9 chosen-single chosen-default','id'=>'idestatura')); ?>
 
-        </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-md-4">
-            <?php echo e(Form::label('Usuario', 'Usuario')); ?>
+                        </div>
+                </div>
+               <div class="row">
+                        <div class="form-group col-md-12">
+                            <?php echo e(Form::label('idusuario', 'Id Usuario',array('class'=>'col-md-3 control-label no-padding-right'))); ?>
 
-      <?php echo Form::select('idusuario',$usuarios,$usu, $attributes = array('class'=>'form-control','id'=>'Provincia')); ?>
+                                <?php echo Form::select('idusuario',$usuarios,$usu, $attributes = array('class'=>'col-md-9 chosen-single chosen-default')); ?>
 
-        </div>
-    </div>
+                        </div>
+                </div>
     <?php echo $__env->make('admin.anuncio.includes.ImagenesUsuarioAnuncio', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                             </div>
                                     <div class="modal-footer">

@@ -69,9 +69,17 @@
                 </div>    
                 <div class="row">
                         <div class="form-group col-md-12">
+                                <?php echo e(Form::label('Sexo', 'Sexo',array('class'=>'col-md-3 control-label no-padding-right'))); ?>
+
+                  <?php echo Form::select('idsexo',$sexos,null, $attributes = array('class'=>'col-md-9 chosen-single chosen-default','id'=>'idsexo')); ?>
+
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="form-group col-md-12">
                                 <?php echo e(Form::label('Pelo', 'Pelo',array('class'=>'col-md-3 control-label no-padding-right'))); ?>
 
-                  <?php echo Form::select('idpelos',$pelos,null, $attributes = array('class'=>'chosen-single chosen-default','id'=>'idpelos')); ?>
+                  <?php echo Form::select('idpelos',$pelos,null, $attributes = array('class'=>'col-md-9 chosen-single chosen-default','id'=>'idpelos')); ?>
 
                         </div>
                 </div>

@@ -46,18 +46,19 @@ class AnuncioProgramadoController extends Controller
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return Redirect::to('/' . Auth::user()->stringRol->nombre . '/listarAnunciosProgramados');
         }
+        $sexo      = caracteristica::where('sexo','!=','')->pluck('sexo','idcaracteristicas');
         $pelos     = caracteristica::where('pelo', '!=', '')->pluck('pelo', 'idcaracteristicas');
         $ojos      = caracteristica::where('ojos', '!=', '')->pluck('ojos', 'idcaracteristicas');
         $estaturas = caracteristica::where('estatura', '!=', '')->pluck('estatura', 'idcaracteristicas');
         $usuarios  = User::pluck('name', 'id');
         switch (Auth::user()->stringRol->nombre) {
             case 'admin':
-                return view(Auth::user()->stringRol->nombre . ".anuncioProgramado.editAnuncio.edit", ["anuncioP" => $anuncioP, "usuarios" => $usuarios, "usu" => $anuncioP->idusuario, "pelos" => $pelos, "ojos" => $ojos, "estaturas" => $estaturas]);
+                return view(Auth::user()->stringRol->nombre . ".anuncioProgramado.editAnuncio.edit", ["anuncioP" => $anuncioP, "usuarios" => $usuarios, "usu" => $anuncioP->idusuario, "pelos" => $pelos, "ojos" => $ojos, "estaturas" => $estaturas,"sexos"=>$sexos]);
 
                 break;
             case 'anunciante':
                 if ($anuncioP->idusuario == Auth::user()->id) {
-                    return view(Auth::user()->stringRol->nombre . ".anuncioProgramado.editAnuncio.edit", ["anuncioP" => $anuncioP, "pelos" => $pelos, "ojos" => $ojos, "estaturas" => $estaturas]);
+                    return view(Auth::user()->stringRol->nombre . ".anuncioProgramado.editAnuncio.edit", ["anuncioP" => $anuncioP, "pelos" => $pelos, "ojos" => $ojos, "estaturas" => $estaturas,"sexos"=>$sexos]);
                 } else {
                     return Redirect::to('/' . Auth::user()->stringRol->nombre . '/listarAnunciosProgramados');
                 }
@@ -145,6 +146,7 @@ return view('anuncio.index', ["anuncios" => $anuncios, "searchText" => $query]);
         $anuncio->descripcion = $request->get('descripcion');
         $anuncio->fechainicio = $request->get('fechainicio');
         $anuncio->fechafinal  = $request->get('fechafinal');
+        $anuncio->idsexo      = $request->get('idsexos');
         $anuncio->idpelos     = $request->get('idpelos');
         $anuncio->idojos      = $request->get('idojos');
         $anuncio->idestatura  = $request->get('idestatura');

@@ -20,6 +20,7 @@ class AnuncioController extends Controller
     public function CrearAnuncio()
     {
         \Session::put('seccion_actual', "Anuncio");
+        $sexos     = caracteristica::where('sexo','!=','')->pluck('sexo','idcaracteristicas');
         $pelos     = caracteristica::where('pelo', '!=', '')->pluck('pelo', 'idcaracteristicas');
         $ojos      = caracteristica::where('ojos', '!=', '')->pluck('ojos', 'idcaracteristicas');
         $estaturas = caracteristica::where('estatura', '!=', '')->pluck('estatura', 'idcaracteristicas');
@@ -27,11 +28,11 @@ class AnuncioController extends Controller
 
         switch (Auth::user()->stringRol->nombre) {
             case 'admin':
-                return view("admin.anuncio.nuevoAnuncio.NuevoAnuncio", ["usuarios" => $usuarios, "pelos" => $pelos, "ojos" => $ojos, "estaturas" => $estaturas]);
+                return view("admin.anuncio.nuevoAnuncio.NuevoAnuncio", ["usuarios" => $usuarios, "pelos" => $pelos, "ojos" => $ojos, "estaturas" => $estaturas,"sexos"=>$sexos]);
                 break;
             case 'anunciante':
                 $menu = $this->MenuIzquierdo(1);
-                return view("anunciante.anuncio.nuevoAnuncio.NuevoAnuncio", ["pelos" => $pelos, "ojos" => $ojos, "estaturas" => $estaturas]);
+                return view("anunciante.anuncio.nuevoAnuncio.NuevoAnuncio", ["pelos" => $pelos, "ojos" => $ojos, "estaturas" => $estaturas,"sexos"=>$sexos]);
                 break;
         }
 
@@ -75,6 +76,7 @@ class AnuncioController extends Controller
         $anuncio              = new anuncio;
         $anuncio->titulo      = $request->get('titulo');
         $anuncio->descripcion = $request->get('descripcion');
+        $anuncio->idsexo     = $request->get('idsexo');        
         $anuncio->idpelos     = $request->get('idpelos');
         $anuncio->idojos      = $request->get('idojos');
         $anuncio->idestatura  = $request->get('idestatura');
@@ -107,18 +109,19 @@ class AnuncioController extends Controller
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return Redirect::to('/' . Auth::user()->stringRol->nombre . '/Anuncio');
         }
+        $sexos     = caracteristica::where('sexo','!=','')->pluck('sexo','idcaracteristicas');
         $pelos     = caracteristica::where('pelo', '!=', '')->pluck('pelo', 'idcaracteristicas');
         $ojos      = caracteristica::where('ojos', '!=', '')->pluck('ojos', 'idcaracteristicas');
         $estaturas = caracteristica::where('estatura', '!=', '')->pluck('estatura', 'idcaracteristicas');
         $usuarios  = User::where('tipo_usuario',1)->pluck('name', 'id');
         switch (Auth::user()->stringRol->nombre) {
             case 'admin':
-                return view(Auth::user()->stringRol->nombre . ".anuncio.editAnuncio.edit", ["anuncio" => $anuncio, "usuarios" => $usuarios, "usu" => $anuncio->idusuario, "pelos" => $pelos, "ojos" => $ojos, "estaturas" => $estaturas]);
+                return view(Auth::user()->stringRol->nombre . ".anuncio.editAnuncio.edit", ["anuncio" => $anuncio, "usuarios" => $usuarios, "usu" => $anuncio->idusuario, "pelos" => $pelos, "ojos" => $ojos, "estaturas" => $estaturas,"sexos"=>$sexos]);
 
                 break;
             case 'anunciante':
                 if ($anuncio->idusuario === Auth::user()->id) {
-                    return view(Auth::user()->stringRol->nombre . ".anuncio.editAnuncio.edit", ["anuncio" => $anuncio, "pelos" => $pelos, "ojos" => $ojos, "estaturas" => $estaturas]);
+                    return view(Auth::user()->stringRol->nombre . ".anuncio.editAnuncio.edit", ["anuncio" => $anuncio, "pelos" => $pelos, "ojos" => $ojos, "estaturas" => $estaturas,"sexos"=>$sexos]);
                 } else {
                     Redirect::to('/' . Auth::user()->stringRol->nombre . '/Anuncio');
                 }
@@ -138,6 +141,7 @@ class AnuncioController extends Controller
         $anuncio->descripcion = $request->get('descripcion');
         $anuncio->fechainicio = $request->get('fechainicio');
         $anuncio->fechafinal  = $request->get('fechafinal');
+        $anuncio->idsexo       = $request->get('idsexo');        
         $anuncio->idpelos     = $request->get('idpelos');
         $anuncio->idojos      = $request->get('idojos');
         $anuncio->idestatura  = $request->get('idestatura');

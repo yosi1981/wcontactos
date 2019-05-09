@@ -64,6 +64,12 @@
                 </div>    
                 <div class="row">
                         <div class="form-group col-md-12">
+                                {{ Form::label('Sexo', 'Sexo',array('class'=>'col-md-3 control-label no-padding-right')) }}
+                  {!! Form::select('idsexo',$sexos,$anuncio->idsexo, $attributes = array('class'=>'col-md-9 chosen-single chosen-default','id'=>'idsexo')) !!}
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="form-group col-md-12">
                                 {{ Form::label('Pelo', 'Pelo',array('class'=>'col-md-3 control-label no-padding-right')) }}
                   {!! Form::select('idpelos',$pelos,$anuncio->idpelo, $attributes = array('class'=>'col-md-9 chosen-single chosen-default','id'=>'idpelos')) !!}
                         </div>

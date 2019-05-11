@@ -9,45 +9,34 @@
                     </span>
                 </button>
                 <h4 class="modal-title">
-                    Eliminar Provincia
+                    Crear Provincia
                 </h4>
             </div>
             <div class="modal-body">
                 <form action="/admin/nuevaProvincia" id="frmProvincia" method="POST">
                     <div class="row">
-                        <div class="col-lg-4 col-sm-4">
-                            Nombre
-                            <div class="form-group">
-                                <input id="nombre" name="nombre" placeholder="Nombre..." type="text">
-                                </input>
-                            </div>
+                        <div class="form-group col-md-12">
+                            <?php echo e(Form::label('nombre', 'Nombre',array('class'=>'col-md-3 control-label no-padding-right'))); ?>
+
+                            <?php echo e(Form::text('nombre',null, array('placeholder' => 'Introduce el nombre', 'class' => ' col-sm-9 form_control'))); ?>
+
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-4 col-sm-4">
-                            Habilitado
-                            <div class="form-group">
-                                <?php echo Form::checkbox('habilitado', '1',true); ?>
+                        <div class="form-group col-md-12">
+                            <?php echo e(Form::label('idadmPro', 'Administrador',array('class'=>'col-md-3 control-label no-padding-right'))); ?>
 
-                            </div>
+                            <?php echo Form::select('idadmPro',$admPro,null, $attributes = array('class'=>'col-md-9 chosen-single chosen-default','id'=>'idadmPro')); ?>
+
+
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-4 col-sm-4">
-                            Id Responsable
-                            <div class="form-group">
-                                <?php echo Form::select('iddelegado',$delegados,null, $attributes = array('class'=>'form-control')); ?>
+                        <div class="form-group col-md-12">
+                            <?php echo e(Form::label('habilitado', 'Habilitado',array('class'=>'col-md-3 control-label no-padding-right'))); ?>
 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-4 col-sm-4">
-                            Id Responsable
-                            <div class="form-group">
-                                <?php echo Form::select('idadmPro',$admPro,null, $attributes = array('class'=>'form-control')); ?>
+                            <?php echo Form::checkbox('habilitado', '1',true); ?>
 
-                            </div>
                         </div>
                     </div>
                 </form>

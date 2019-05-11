@@ -13,8 +13,8 @@
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" role="form">
-                    <p>
-                        Confirme si desea Eliminar la Provincia :
+                    <p class="texto">
+                        Confirme si desea Deshabilitar la Provincia
                     </p>
                     <span class="hidden id">
                     </span>

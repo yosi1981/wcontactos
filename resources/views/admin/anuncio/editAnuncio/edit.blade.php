@@ -12,32 +12,9 @@
                 <div class="col-xs-12">
                     @include('admin.anuncio.includes.modalDelete')
 
-@if(session()->has('msj'))
-                    <div class="alert alert-success">
-                        <button aria-hidden="true" class="close" type="button">
-                            ×
-                        </button>
-                        <span>
-                            <b>
-                                Exito -
-                            </b>
-                            {{ session('msj')}} ".alert-success"
-                        </span>
-                    </div>
-                    @endif
-                    <div class="tableefecto widget-box widget-color-blue ui-sortable-handle" id="widget-box-3">
-                        <div class="widget-header widget-header-small">
-                            <h6 class="widget-title">
-                                <i class="ace-icon fa fa-table">
-                                </i>
-                                Modificar Anuncio
-                            </h6>
-                        </div>
-                        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+                    <?php $TituloVentana="Modificar Anuncio" ?>
+                    @include('layouts.includes.admin.ventanas.CabeceraVentana')
 
-                        </div>
-                        <div class="widget-body" style="display: block;">
-                            <div class="widget-main ">
     {!!Form::model($anuncio,['method'=>'PATCH','route'=>['Anuncio.update',$anuncio->idanuncio]])!!}
                <div class="row">
                         <div class="form-group col-md-12">
@@ -98,8 +75,7 @@
   {{ Form::button('Actualizar Anuncio', array('type' => 'submit', 'class' => 'btn btn-primary')) }}
                                     </div>
 {{ Form::close() }}
-                        </div>
-                    </div>
+                    @include('layouts.includes.admin.ventanas.PieVentana')
                 </div>
             </div>
         </div>

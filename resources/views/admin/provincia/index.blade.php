@@ -76,7 +76,7 @@
                                                             {{$provi->habilitado}}
                                                         </td>
                                                         <td>
-                                                            <a href="{{URL::action('UsuarioController@edit',$provi->idresponsable)}}">
+                                                            <a href="{{URL::to('/Usuario/'.$provi->idresponsable.'/edit')}}">
                                                                 {{$provi->NombreUsuario}}
                                                             </a>
                                                         </td>
@@ -218,6 +218,17 @@
 
         $(document).on('click', '.delete-modal', function(){
             $('.id').text($(this).data('id'));
+            var ask=$(this).text();
+            if(ask.trim() == "HABILITAR")
+            {
+                $('.modal-title').text("DESHABILITAR");                
+                $('.texto').text("¿Desea Deshabilitar la Provincia?");
+            }
+            else
+            {
+                $('.modal-title').text("HABILITAR");                
+                $('.texto').text("¿Desea Habilitar la Provincia?");
+            }
             $('#modal-delete').modal('show');
         })
         $('.modal-footer').on('click', '.delete', function(e) {

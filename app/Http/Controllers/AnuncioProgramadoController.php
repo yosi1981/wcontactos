@@ -53,12 +53,12 @@ class AnuncioProgramadoController extends Controller
         $usuarios  = User::pluck('name', 'id');
         switch (Auth::user()->stringRol->nombre) {
             case 'admin':
-                return view(Auth::user()->stringRol->nombre . ".anuncioProgramado.editAnuncio.edit", ["anuncioP" => $anuncioP, "usuarios" => $usuarios, "usu" => $anuncioP->idusuario, "pelos" => $pelos, "ojos" => $ojos, "estaturas" => $estaturas,"sexos"=>$sexos]);
+                return view(Auth::user()->stringRol->nombre . ".anuncioProgramado.editAnuncio.edit", ["anuncioP" => $anuncioP, "usuarios" => $usuarios, "usu" => $anuncioP->idusuario, "pelos" => $pelos, "ojos" => $ojos, "estaturas" => $estaturas,"sexos"=>$sexo]);
 
                 break;
             case 'anunciante':
                 if ($anuncioP->idusuario == Auth::user()->id) {
-                    return view(Auth::user()->stringRol->nombre . ".anuncioProgramado.editAnuncio.edit", ["anuncioP" => $anuncioP, "pelos" => $pelos, "ojos" => $ojos, "estaturas" => $estaturas,"sexos"=>$sexos]);
+                    return view(Auth::user()->stringRol->nombre . ".anuncioProgramado.editAnuncio.edit", ["anuncioP" => $anuncioP, "pelos" => $pelos, "ojos" => $ojos, "estaturas" => $estaturas,"sexos"=>$sexo]);
                 } else {
                     return Redirect::to('/' . Auth::user()->stringRol->nombre . '/listarAnunciosProgramados');
                 }

@@ -92,7 +92,6 @@ class ProvinciaController extends Controller
 			$provincia                = new Provincia;
 			$provincia->nombre        = $request->get('nombre');
 			$provincia->idresponsable = $request->get('idadmPro');
-			$provincia->iddelegado    = $request->get('iddelegado');
 			if ($request->get('habilitado')) {
 				$provincia->habilitado = '1';
 			} else {
@@ -115,12 +114,10 @@ class ProvinciaController extends Controller
 		$query       = "";
 		$provincia   = Provincia::findOrFail($id);
 		$poblaciones = $provincia->localidades;
-		$delegados   = User::where('tipo_usuario', '=', '3')->pluck('name', 'id');
-		$delegado    = $provincia->iddelegado;
 		$admPros     = User::where('tipo_usuario', '=', '2')->pluck('name', 'id');
 		$admPro      = $provincia->idresponsable;
 
-		return view("admin.provincia.editProvincia.edit", ["poblaciones" => $poblaciones, "provincia" => $provincia, "delegados" => $delegados, "delegado" => $delegado, "admPros" => $admPros, "admPro" => $admPro]);
+		return view("admin.provincia.editProvincia.edit", ["poblaciones" => $poblaciones, "provincia" => $provincia, "admPros" => $admPros, "admPro" => $admPro]);
 
 		//Provincia::findOrFail($id)]);
 	}
@@ -133,7 +130,6 @@ class ProvinciaController extends Controller
 		} else {
 			$provincia->habilitado = '0';
 		}
-		$provincia->iddelegado    = $request->get('iddelegado');
 		$provincia->idresponsable = $request->get('idadmPro');
 		$provincia->update();
 		return Redirect::to('/admin/Provincia');

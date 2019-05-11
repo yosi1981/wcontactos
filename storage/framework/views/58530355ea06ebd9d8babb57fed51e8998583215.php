@@ -30,19 +30,9 @@
                         </span>
                     </div>
                     <?php endif; ?>
-                    <div class="tableefecto widget-box widget-color-blue ui-sortable-handle" id="widget-box-3">
-                        <div class="widget-header widget-header-small">
-                            <h6 class="widget-title">
-                                <i class="ace-icon fa fa-table">
-                                </i>
-                                Modificar Anuncio
-                            </h6>
-                        </div>
-                        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+                    <?php $TituloVentana="Modificar Anuncio Programado" ?>
+                    <?php echo $__env->make('layouts.includes.admin.ventanas.CabeceraVentana', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-                        </div>
-                        <div class="widget-body" style="display: block;">
-                            <div class="widget-main ">
 <?php echo Form::model($anuncioP,['method'=>'PATCH','route'=>['AP.update',$anuncioP->idanuncio_programado]]); ?>
 
 <div class="row">
@@ -132,9 +122,7 @@
 <button class="btn btn-warning" data-id="<?php echo e($anuncioP->idanuncio_programado); ?>" id="btnAddAnunProLocal" name="AnunProLoca">
     Nuevo
 </button>
-                            </div>
-                        </div>
-                    </div>
+                    <?php echo $__env->make('layouts.includes.admin.ventanas.PieVentana', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                 </div>
             </div>
         </div>

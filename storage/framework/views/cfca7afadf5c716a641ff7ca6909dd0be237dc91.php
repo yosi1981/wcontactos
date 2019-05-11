@@ -9,19 +9,9 @@
         <div class="page-content">
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="tableefecto widget-box widget-color-blue ui-sortable-handle" id="widget-box-3">
-                        <div class="widget-header widget-header-small">
-                            <h6 class="widget-title">
-                                <i class="ace-icon fa fa-table">
-                                </i>
-                                Crear Anuncio
-                            </h6>
-                        </div>
-                        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+                    <?php $TituloVentana="Crear Anuncio" ?>
+                    <?php echo $__env->make('layouts.includes.admin.ventanas.CabeceraVentana', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-                        </div>
-                        <div class="widget-body" style="display: block;">
-                            <div class="widget-main ">
                     <?php echo e(Form::open(array('url' => '/admin/NuevoAnuncio','method'=>'POST'), array('role' => 'form','class'=>'form-horizontal'))); ?>
 
                 <div class="row">
@@ -114,6 +104,7 @@
             </div>
             <?php echo e(Form::close()); ?>
 
+                    <?php echo $__env->make('layouts.includes.admin.ventanas.PieVentana', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
             </div>
         </div>
     </div>

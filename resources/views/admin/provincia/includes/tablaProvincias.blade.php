@@ -31,11 +31,11 @@
                     <td>
                         {{$provi->habilitado}}
                     </td>
-                    <td>
-                        <a href="{{URL::action('UsuarioController@edit',$provi->idresponsable)}}">
-                            {{$provi->NombreUsuario}}
-                        </a>
-                    </td>
+                                                        <td>
+                                                            <a href="{{URL::to('/Usuario/'.$provi->idresponsable.'/edit')}}">
+                                                                {{$provi->NombreUsuario}}
+                                                            </a>
+                                                        </td>
                     <td>
                         <button class="btn btn-sm btn-success">
                             <a href="{{URL::action('ProvinciaController@edit',$provi->idprovincia)}}">

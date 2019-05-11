@@ -10,19 +10,9 @@
         <div class="page-content">
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="tableefecto widget-box widget-color-blue ui-sortable-handle" id="widget-box-3">
-                        <div class="widget-header widget-header-small">
-                            <h6 class="widget-title">
-                                <i class="ace-icon fa fa-table">
-                                </i>
-                                Crear Anuncio
-                            </h6>
-                        </div>
-                        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+                    <?php $TituloVentana="Crear Anuncio" ?>
+                    @include('layouts.includes.admin.ventanas.CabeceraVentana')
 
-                        </div>
-                        <div class="widget-body" style="display: block;">
-                            <div class="widget-main ">
                     {{ Form::open(array('url' => '/admin/NuevoAnuncio','method'=>'POST'), array('role' => 'form','class'=>'form-horizontal')) }}
                 <div class="row">
                         <div class="form-group col-md-12">
@@ -92,6 +82,7 @@
                 {{ Form::button('Crear Anuncio', array('type' => 'submit', 'class' => 'btn btn-primary')) }}
             </div>
             {{Form::close()}}
+                    @include('layouts.includes.admin.ventanas.Ventana')
             </div>
         </div>
     </div>

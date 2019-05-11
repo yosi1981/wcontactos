@@ -11,32 +11,9 @@
                 <div class="col-xs-12">
                     <?php echo $__env->make('admin.anuncio.includes.modalDelete', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-<?php if(session()->has('msj')): ?>
-                    <div class="alert alert-success">
-                        <button aria-hidden="true" class="close" type="button">
-                            ×
-                        </button>
-                        <span>
-                            <b>
-                                Exito -
-                            </b>
-                            <?php echo e(session('msj')); ?> ".alert-success"
-                        </span>
-                    </div>
-                    <?php endif; ?>
-                    <div class="tableefecto widget-box widget-color-blue ui-sortable-handle" id="widget-box-3">
-                        <div class="widget-header widget-header-small">
-                            <h6 class="widget-title">
-                                <i class="ace-icon fa fa-table">
-                                </i>
-                                Modificar Anuncio
-                            </h6>
-                        </div>
-                        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+                    <?php $TituloVentana="Modificar Anuncio" ?>
+                    <?php echo $__env->make('layouts.includes.admin.ventanas.CabeceraVentana', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-                        </div>
-                        <div class="widget-body" style="display: block;">
-                            <div class="widget-main ">
     <?php echo Form::model($anuncio,['method'=>'PATCH','route'=>['Anuncio.update',$anuncio->idanuncio]]); ?>
 
                <div class="row">
@@ -117,8 +94,7 @@
                                     </div>
 <?php echo e(Form::close()); ?>
 
-                        </div>
-                    </div>
+                    <?php echo $__env->make('layouts.includes.admin.ventanas.PieVentana', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                 </div>
             </div>
         </div>

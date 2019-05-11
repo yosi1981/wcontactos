@@ -34,12 +34,12 @@
                         <?php echo e($provi->habilitado); ?>
 
                     </td>
-                    <td>
-                        <a href="<?php echo e(URL::action('UsuarioController@edit',$provi->idresponsable)); ?>">
-                            <?php echo e($provi->NombreUsuario); ?>
+                                                        <td>
+                                                            <a href="<?php echo e(URL::to('/Usuario/'.$provi->idresponsable.'/edit')); ?>">
+                                                                <?php echo e($provi->NombreUsuario); ?>
 
-                        </a>
-                    </td>
+                                                            </a>
+                                                        </td>
                     <td>
                         <button class="btn btn-sm btn-success">
                             <a href="<?php echo e(URL::action('ProvinciaController@edit',$provi->idprovincia)); ?>">

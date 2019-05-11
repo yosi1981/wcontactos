@@ -3,12 +3,16 @@
                 @include('layouts.includes.'.Auth::user()->stringRol->nombre . '.barraizda')
 @endsection
 @section ('contenido')
-<h1>
-    Crear Anuncio
-</h1>
-<div class="page-content">
-    <div class="row">
-        <div class="col-xs-12">
+<div class="main-content">
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        </div>
+        <div class="page-content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <?php $TituloVentana="Crear Anuncio Programado" ?>
+                    @include('layouts.includes.admin.ventanas.CabeceraVentana')
+
             {{ Form::open(array('url' => 'NuevoAnuncio','method'=>'POST'), array('role' => 'form','class'=>'form-horizontal')) }}
             <div class="form-group">
                 {{ Form::label('titulo', 'Titulo',array('class'=>'col-sm-3 control-label no-padding-right','for'=>'form-field-1-1')) }}
@@ -59,6 +63,9 @@
                 {{ Form::button('Crear Anuncio', array('type' => 'submit', 'class' => 'btn btn-primary')) }}
             </div>
             {{Form::close()}}
+                    @include('layouts.includes.admin.ventanas.PieVentana')
+                </div>
+            </div>
         </div>
     </div>
 </div>

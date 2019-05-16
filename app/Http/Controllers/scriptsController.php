@@ -5,16 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Traits\trait1;
 use Config;
+use Illuminate\Support\Facades\Redirect;
 
 class scriptsController extends Controller
 {
 	use trait1;
 
-	public function editincludescripts(){
-     \Session::put('seccion_actual', "editincludescripts");
 
-		return view("admin.scripts.index");
-	}
 
 	public function readfileincludesscripts($zona=1){
     switch ($zona) {
@@ -88,7 +85,28 @@ natsort($items);
         $aux[$key] = $row['stylefile'];
     }       
     array_multisort($aux, SORT_ASC, $lstyles);
-		$salida= view("admin.scripts.include.tablafilesJs", ["scripts" => $lstyles])->render();
-                return response()->json($salida);
+    foreach ($lstyles as $key => $row) {
+        $aux[$key] = $row['file_in_proyect'];
+    }     
+    array_multisort($aux, SORT_DESC, $lstyles);
+
+		return view("admin.scripts.index", ["scripts" => $lstyles]);
+    }
+
+
+    public function writefileincludescripts(request $request){
+      $files                 = $request->get('selfile');
+      $view_path = Config::get('view.paths');
+      $ficheroinclude = $view_path[0]."/layouts/scripts/scripts1.blade.php";
+      $fp = fopen($ficheroinclude, "w");
+      fputs($fp, "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js\"></script>");
+      fputs($fp, "<script src=\"https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js\"></script>");
+      foreach ($files as $file){
+        $salida="<script src=\""."{{asset('/js/".$file."')}}\"></script>\n";
+        fputs($fp, $salida);
+      }
+
+    fclose($fp);
+    return Redirect::to('/admin/editincludescripts');
     }
 }

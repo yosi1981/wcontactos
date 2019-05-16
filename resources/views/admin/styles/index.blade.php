@@ -30,14 +30,16 @@
                                                                     <input name="todUsu" type="checkbox" value=""/>
                                                         </div>
                                                     </th>
-                                                    <th width="5%" >
+                                                    <th width="5%" style="text-align:  center" >
                                                         Estado
                                                     </th>
                                                     <th>
                                                         Css
                                                     </th>
+                                                    <th style="text-align:  right">
+                                                        Tamaño (kb)
+                                                    </th>
                                                     <th>
-                                                        Tamaño
                                                     </th>
                                                 </thead>
                                                 @if (count($styles)>0)
@@ -45,12 +47,12 @@
                                                     <form action="/admin/writefileincludecss" method="get" id="frmCss">
                                                     @foreach ($styles as $style)
                                                         @if($style["file_in_proyect"]==-1)
-                                                            <tr style="color:red;font-weight: bold;">
+                                                            <tr class="item" style="color:red;font-weight: bold;">
                                                         @else
                                                             @if($style["file_in_proyect"]==1)
-                                                            <tr style="font-weight: bold;">
+                                                            <tr class="item" style="font-weight: bold;">
                                                             @else
-                                                            <tr>
+                                                            <tr class="item">
                                                             @endif
                                                         @endif
                                                         <td align="center">
@@ -72,13 +74,18 @@
                                                                         @endif
                                                                     @endif                            
                                                         </td>
-                                                        <td>
+                                                        <td >
                                                             {{$style["stylefile"]}}
                                                         </td>
-                                                        <td>
+                                                        <td align="right">
                                                             {{$style["stylefile_size"]}}
                                                         </td>
-                                                    </tr>
+                                                        <td align="center ">
+                                                            <i class="subir modificar menu-icon fa fa-arrow-up" style="color:green">
+                                                            </i>
+                                                            <i class="bajar modificar menu-icon fa fa-arrow-down" style="color:green">
+                                                            </i>
+                                                        </td>                                                    </tr>
                                                     @endforeach
                                                 <button type="submit" class="btn btn-primary">Confirmar</button>
                                                 </form>
@@ -111,13 +118,27 @@
 .tableefecto{
   box-shadow: 1px 1px 20px #000;
 }
+
 </style>
 <script>
         $(document).ready(function() {
             $("#widget-box-3").fadeIn();
             TweenMax.from("#widget-box-3", 0.4, { scale: 0, ease: Sine.easeInOut });
             TweenMax.to("#widget-box-3", 0.4, { scale: 1, ease: Sine.easeInOut });
- 
+            $('.bajar').click(function(e){
+                var self=$(this);
+                    selfclasses=$(this).attr('class');
+                    item=self.parents('tr.item');
+                    snapwith=item.next();
+                item.before(snapwith.detach());
+            });
+             $('.subir').click(function(e){
+                var self=$(this);
+                    selfclasses=$(this).attr('class');
+                    item=self.parents('tr.item');
+                    snapwith=item.prev();
+                item.after(snapwith.detach());
+            });
         });
 </script>
 @endsection

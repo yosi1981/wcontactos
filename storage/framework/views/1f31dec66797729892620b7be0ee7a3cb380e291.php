@@ -68,7 +68,6 @@
 
 	
 	<div class="wrapper">
-          <?php echo $__env->make('layouts.includes.'.Auth::user()->stringRol->nombre . '.barraIzda', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 	    <div class="main-panel">
 			<nav class="navbar navbar-transparent navbar-absolute">

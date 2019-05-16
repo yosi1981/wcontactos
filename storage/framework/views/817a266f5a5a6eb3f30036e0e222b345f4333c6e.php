@@ -17,11 +17,14 @@
                     </h6>
                 </div>
                         <div class="breadcrumbs ace-save-state" id="breadcrumbs">
-                            <button class="btn btn-xs btn-white btn-default btn-round" id="btnAddProvincia" name="btnAddProvincia">
-                                <i class="ace-icon fa fa-times red2">
-                                </i>
-                                Crear Promocion
-                            </button>
+                            <a href="<?php echo e(URL::to('/admin/CrearPromocion')); ?>" padding-left="15px">
+                                <button class="btn btn-xs btn-white btn-default btn-round" id="btnAddProvincia" name="btnAddProvincia">
+                                    <i class="ace-icon fa fa-times red2">
+                                    </i>
+                                    Crear Promocion
+                                </button>
+ 
+                            </a>
                         </div>
                 <div class="widget-body" style="display: block;">
                                 <div class="table-responsive" id="cuerpo" name="cuerpo">
@@ -158,6 +161,17 @@
 
         $(document).on('click', '.delete-modal', function(){
             $('.id').text($(this).data('id'));
+            var ask=$(this).text();
+            if(ask.trim() == "HABILITAR")
+            {
+                $('.modal-title').text("DESHABILITAR");                
+                $('.texto').text("¿Desea Deshabilitar la Promoción?");
+            }
+            else
+            {
+                $('.modal-title').text("HABILITAR");                
+                $('.texto').text("¿Desea Habilitar la Promoción?");
+            }
             $('#modal-delete').modal('show');
         })
         $('.modal-footer').on('click', '.delete', function(e) {

@@ -7,6 +7,7 @@ use App\Promocion;
 use Auth;
 use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class PromocionController extends Controller
 {
@@ -36,14 +37,29 @@ class PromocionController extends Controller
             }
         }
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+   public function CrearPromocion()
     {
-        //
+        \Session::put('seccion_actual', "promociones");
+
+
+ 
+        return view("admin.Promocion.NuevaPromocion.NuevaPromocion");
+    
+    }
+
+    public function NuevaPromocion(Request $request)
+    {
+        \Session::put('seccion_actual',"promociones");
+        $Promocion              = new Promocion;
+        $Promocion->descripcion = $request->get('descripcion');
+        $Promocion->dias      = $request->get('dias');
+        $Promocion->importe = $request->get('importe');
+        $Promocion->fecha_inicio     = $request->get('fecha_inicio');        
+        $Promocion->fecha_fin  = $request->get('fecha_fin');
+        $Promocion->status      = 1;
+
+        $Promocion->save();
+        return Redirect::to('/admin/Promocion');      
     }
 
     /**

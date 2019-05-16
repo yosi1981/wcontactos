@@ -1,4 +1,7 @@
-@extends ('layouts.admin1')
+@extends ('layouts.admin2')
+@section ('barraizda')
+                @include('layouts.includes.'.Auth::user()->stringRol->nombre . '.barraizda')
+@endsection
 @section ('contenido')
 <div class="modal fade modal-slide-in-right" id="crearCita" aria-hidden="true" role="dialog" >
 
@@ -6,7 +9,7 @@
 <div class="modal fade modal-slide-in-right" id="editarCita" aria-hidden="true" role="dialog" >
 
 </div>
-	<div id='calendar' class="fc fc-unthemed fc-ltr"></div>
+	<div id='calendar' ></div>
 	<input id="datetimepicker" type="text" value="2014/03/15 05:06">					
 
 
@@ -17,13 +20,13 @@
 
 		idanuncio={{$anuncio->idanuncio}};
 		$('.modal').appendTo("body");
-		$.get('/CitasAnuncio/'+idanuncio,
+		$.get('/admin/CitasAnuncio/'+idanuncio,
 			function(data)
 			{
 		var hoy = new Date();
-		var dd = hoy.getDate();
-		var mm = hoy.getMonth()+1; //hoy es 0!
-		var yyyy = hoy.getFullYear();
+		var dd = "09" //hoy.getDate();
+		var mm = "05" //hoy.getMonth()+1; //hoy es 0!
+		var yyyy = "2018" //hoy.getFullYear();
 		if(dd<10) {
 		    dd='0'+dd
 		} 
@@ -33,16 +36,17 @@
 		} 
 
 		hoy = yyyy+'-'+mm+'-'+dd;
+    alert(data);
 		$('#calendar').fullCalendar({
-
 			defaultDate: hoy,
 			navLinks: false, // can click day/week names to navigate views
 			editable: false,
 			eventLimit: false, // allow "more" link when too many events
 			events: data,
    eventRender: function(event,element){
+      alert("prueba");
    		var el=element.html();
-   		element.html("<div>"+el+"<i class='fa fa-trash' color='red'></i></div>")
+   		element.html("<div>"+el+"<i class='fa fa-trash' style=\"color:red;\"></i></div>");
    },
    eventClick: function(calEvent, jsEvent, view) {
 
@@ -50,7 +54,7 @@
    		console.log(view);
  		console.log(calEvent);
  		idcita=calEvent["id"];
-        $.get('/editCita/'+idcita,
+        $.get('/admin/editCita/'+idcita,
         	function(data){
         		
         		$('#editarCita').html(data);
@@ -98,7 +102,7 @@
     },
     dayClick: function(date, jsEvent, view) {
 
-        $.get('/nuevaCita/'+idanuncio,
+        $.get('/admin/nuevaCita/'+idanuncio,
         	function(data){
         		
         		$('#crearCita').html(data);

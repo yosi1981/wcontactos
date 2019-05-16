@@ -10,7 +10,7 @@
 				</div>
 
 				<div class="modal-body">		
-					<form action="/guardarNuevaCita" method="post" id="CCita">
+					<form action="/admin/guardarNuevaCita" method="post" id="CCita">
 						<div class="row">
 							<div class="col-lg-4 col-sm-4">id Anuncio
 								<div class="form-group">

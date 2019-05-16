@@ -9,6 +9,6 @@
 <link href="<?php echo e(asset('/css/image-picker.css')); ?>" rel="stylesheet"/>
 <link href="<?php echo e(asset('/css/jquery-ui.custom.min.css')); ?>" rel="stylesheet"/>
 <link href="<?php echo e(asset('/font-awesome/4.5.0/css/font-awesome.min.css')); ?>" rel="stylesheet"/>
-<!-- <link class=\ace-main-stylesheet" href="<?php echo e(asset('/css/ace-part2.min.css')); ?>" rel="stylesheet"/> -->
+<link class="ace-main-stylesheet" href="<?php echo e(asset('/css/ace-part2.min.css')); ?>" rel="stylesheet"/> 
 <!--<link class="ace-main-stylesheet" href="<?php echo e(asset('/css/ace.min.css')); ?>" rel="stylesheet"/>-->
  <link class="ace-main-stylesheet" href="<?php echo e(asset('/css/ace.min.css')); ?>"  rel="stylesheet"/>

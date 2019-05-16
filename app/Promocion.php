@@ -15,10 +15,10 @@ class Promocion extends Model
     protected $fillable = [
         'dias',
         'importe',
+        'descripcion',
         'fecha_inicio',
         'fecha_fin',
         'status',
-        'tipo',
     ];
     protected $guarded = [
     ];

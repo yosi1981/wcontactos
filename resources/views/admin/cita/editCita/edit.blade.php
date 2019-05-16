@@ -10,7 +10,7 @@
 				</div>
 
 				<div class="modal-body">		
-					<form action="/updateCita" method="post" id="EditCita">
+					<form action="/admin/updateCita" method="post" id="EditCita">
 						<div class="row">
 							<div class="col-lg-4 col-sm-4">id Cita
 								<div class="form-group">

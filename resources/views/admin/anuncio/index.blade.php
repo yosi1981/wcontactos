@@ -120,6 +120,7 @@
                                                             </i>
                                                         </button>
                                                         @endif
+                                                        <!--
                         @if ($anu->activo == 1)
                                                         <button class="btn btn-sm btn-warning">
                                                             <a href="{{URL::to('/admin/listadoCitas/'.$anu->idanuncio)}}">
@@ -128,6 +129,7 @@
                                                             </a>
                                                         </button>
                                                         @endif
+                                                        -->
                                                         <button class="btn btn-sm btn-warning">
                                                             <a href="{{URL::to('/admin/createAP/'.$anu->idanuncio)}}">
                                                                 <i class="ace-icon fa fa-calendar bigger-120">

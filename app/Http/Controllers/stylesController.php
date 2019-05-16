@@ -26,12 +26,12 @@ while(false != ($file = readdir($dir))) {
         }   
 }
 
-natsort($items); 
+//natsort($items); 
 
  
     	$contenido = file_get_contents($view_path[0]."/layouts/styles/styles.blade.php");
 		preg_match_all('/.*<link.*href="{{asset\(\'\/css\/(.*)\'\)}}".*\/>/', $contenido, $coincidencias);
-		array_multisort($coincidencias[1], SORT_ASC, SORT_STRING);
+		//array_multisort($coincidencias[1], SORT_ASC, SORT_STRING);
   	$lstyles=null;
   	$i=0;
   	foreach($items as $stylefile){
@@ -67,16 +67,23 @@ natsort($items);
   		}
   	}
 
+    /* podemos ordenar por nombre
     foreach ($lstyles as $key => $row) {
         $aux[$key] = $row['stylefile'];
     }  			
     array_multisort($aux, SORT_ASC, $lstyles);
+    */
+    foreach ($lstyles as $key => $row) {
+        $aux[$key] = $row['file_in_proyect'];
+    }       
+    array_multisort($aux, SORT_DESC, $lstyles);
  //dd($items);
 		return view("admin.styles.index", ["styles" => $lstyles]);
     }
 
     public function writefileincludecss(request $request){
     	$files                 = $request->get('selfile');
+      dd($files);
     	$view_path = Config::get('view.paths');
     	$ficheroinclude = $view_path[0]."/layouts/styles/styles.blade.php";
     	$fp = fopen($ficheroinclude, "w");

@@ -13,7 +13,7 @@
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" role="form">
-                    <p>
+                    <p class="texto">
                         Confirme si desea Eliminar la Promocion :
                     </p>
                     <span class="hidden id">

@@ -68,7 +68,6 @@
 
 	
 	<div class="wrapper">
-          @include('layouts.includes.'.Auth::user()->stringRol->nombre . '.barraIzda')
 
 	    <div class="main-panel">
 			<nav class="navbar navbar-transparent navbar-absolute">

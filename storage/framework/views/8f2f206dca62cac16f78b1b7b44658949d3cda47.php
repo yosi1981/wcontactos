@@ -137,6 +137,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="hidden-sm hidden-xs btn-group">
+                                                        
                                                         <button class="btn btn-sm btn-success">
                                                             <a href="<?php echo e(URL::to('/admin/editarAnuncioProgramado/'.$anu->idanuncio_programado)); ?>">
                                                                 <i class="ace-icon fa fa-pencil bigger-120">

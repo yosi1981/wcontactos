@@ -17,66 +17,97 @@
                                 </i>
                                 Listado de Scripts ZONA PUBLICA
                             </h5>
-                            <div class="widget-toolbar">
-            <a data-action="guardar" style="color:white;">
-                <i class="ace-icon fa fa-floppy-o">
-                </i>
-            </a>
-
-            <a data-action="reload" class="refrescar" data-ruta="1"  href="#">
-                <i class="ace-icon fa fa-refresh">
-                </i>
-            </a>
-            <a data-action="collapse" href="#">
-                <i class="ace-icon fa fa-minus" data-icon-hide="fa-minus" data-icon-show="fa-plus">
-                </i>
-            </a>
-        </div>
+                           
                         </div>
                         <div class="widget-body" style="display: block;">
                             <div class="widget-main">
                                 <div class="table-responsive" id="cuerpo1" name="cuerpo1">
+<div class="card">
+    <div class="table-responsive">
+        <table  class="table table-striped table-bordered table-condensed table-hover">
+            <thead>
+                <th width="5%">
+                    <div align="center">
+                    </div>
+                </th>
+                <th width="5%" style="text-align: center">
+                    Estado
+                </th>
+                <th>
+                    Css
+                </th>
+                <th style="text-align: right">
+                    Tamaño (kb)
+                </th>
+            </thead>
+            @if (count($scripts)>0)
+            <tbody>
+                <form action="/admin/writefileincludescripts"  method="get">
+                    @foreach ($scripts as $script)
+                        @if($script["file_in_proyect"]==-1)
+                            <tr style="color:red;font-weight: bold;">
+                        @else
+                            @if($script["file_in_proyect"]==1)
+                                <tr style="font-weight: bold;">
+                            @else
+                                <tr>
+                            @endif
+                        @endif
+                                <td align="center">
+                                    @if($script["file_in_proyect"]>0)
+                                    <input checked="CHECKED" id="selfile[]" name="selfile[]" type="checkbox" value="{{$script['stylefile']}}"/>
+                                    @else
+                                                                        @if($script["file_in_proyect"]==0)
+                                    <input id="selfile[]" name="selfile[]" type="checkbox" value="{{$script['stylefile']}}"/>
+                                    @endif
+                                                                    @endif
+                                </td>
+                                <td align="center">
+                                    @if($script["file_in_proyect"]>0)
+                                    <i class="menu-icon fa fa-check" style="color:green">
+                                    </i>
+                                    @else
+                                                                        @if($script["file_in_proyect"]==-1)
+                                    <i class="menu-icon fa fa-times">
+                                    </i>
+                                    @endif
+                                                                    @endif
+                                </td>
+                                <td>
+                                    {{$script["stylefile"]}}
+                                </td>
+                                <td align="right">
+                                    {{$script["stylefile_size"]}}
+                                </td>
 
+                            </tr>
+                            @endforeach
+                    <button class="btn btn-primary" type="submit">
+                        Confirmar
+                    </button>
+                </form>
+            </tbody>
+            @else
+            <tbody>
+                <tr>
+                    <td align="center" colspan="5">
+                        <b>
+                            No hay resultados en la búsqueda
+                        </b>
+                    </td>
+                </tr>
+            </tbody>
+            @endif
+        </table>
+    </div>
+</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="tableefecto widget-box widget-color-blue ui-sortable-handle" id="c2">
-                        <div class="widget-header widget-header-small">
-                            <h5 class="widget-title">
-                                <i class="ace-icon fa fa-table">
-                                </i>
-                                Listado de Scripts ZONA ADMIN
-                            </h5>
-<div class="widget-toolbar">
-            <a data-action="guardar" style="color:white;">
-                <i class="ace-icon fa fa-floppy-o">
-                </i>
-            </a>
-            <a data-action="reload" class="refrescar" data-ruta="2"  href="#">
-                <i class="ace-icon fa fa-refresh">
-                </i>
-            </a>
-            <a data-action="collapse" href="#">
-                <i class="ace-icon fa fa-minus" data-icon-hide="fa-minus" data-icon-show="fa-plus">
-                </i>
-            </a>
-        </div>
-                        </div>
-                        <div class="widget-body" style="display: block;">
-                            <div class="widget-main">
-                                <div class="table-responsive" id="cuerpo2" name="cuerpo2">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+ 
 
         </div>
     </div>
@@ -85,42 +116,16 @@
 .tableefecto{
   box-shadow: 1px 1px 20px #000;
 }
+
 </style>
 <script>
-        function MostrarIncludesZona(ruta,destino){
-            var url="{{URL::to('/admin/readfileincludesscripts')}}"+"/"+ruta;
-            $.ajax({
-                type:'get',
-                url: url,
-                dataType: 'json',
-                headers: {
-                       'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                   },
-                success:function(data){
-                    $("#"+destino).html(data);
-             }
-                }).fail(function(data){
-                    alert('algo falla');
-                            });
-
-        }
         $(document).ready(function() {
-            MostrarIncludesZona(1,"cuerpo1");
 
             $("#c1").fadeIn();
             TweenMax.from("#c1", 0.4, { scale: 0, ease: Sine.easeInOut });
             TweenMax.to("#c1", 0.4, { scale: 1, ease: Sine.easeInOut });
-            MostrarIncludesZona(2,"cuerpo2");
-            $("#c2").fadeIn();
-            TweenMax.from("#c2", 0.4, { scale: 0, ease: Sine.easeInOut });
-            TweenMax.to("#c2", 0.4, { scale: 1, ease: Sine.easeInOut });
+
         });
-        $(document).on('click','.refrescar',function(e){
-            e.preventDefault();
-            ruta=$(this).data('ruta');
-            destino="cuerpo"+ruta;
-            MostrarIncludesZona(ruta,destino);
-        })
 
 </script>
 @endsection

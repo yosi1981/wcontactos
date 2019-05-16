@@ -47,12 +47,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/searchAnuncio', 'AnuncioController@search');
     */
 
-    Route::get('/listadoCitas/{id}', 'CitaController@listadoCitas');
-    Route::get('/CitasAnuncio/{id}', 'CitaController@CitasAnuncio');
-    Route::get('/nuevaCita/{id}', 'CitaController@NuevaCita');
-    Route::get('/editCita/{id}', 'CitaController@EditarCita');
-    Route::post('/guardarNuevaCita', 'CitaController@GuardarNuevaCita')->name('cita.guardar');
-    Route::post('/updateCita', 'CitaController@UpdateCita')->name('cita.guardar');
+
 
     Route::resource('AP', 'AnuncioProgramadoController');
 
@@ -72,8 +67,9 @@ Route::group(['middleware' => 'auth'], function () {
         route::get('/admin/showCamposInfoTabla/{tabla}','bdController@showCamposInfoTabla');
         route::get('/admin/readfileWebRoute','editorController@readfileWebRoutes');
         route::get('/admin/readfile','editorController@readfileRoutes');
-        route::get('/admin/editincludescripts','scriptsController@editincludescripts');
-        route::get('/admin/readfileincludesscripts/{ruta}','scriptsController@readfileincludesscripts');        
+        route::get('/admin/editincludescripts','scriptsController@readfileincludesscripts');
+        Route::get('/admin/writefileincludescripts','scriptsController@writefileincludescripts');
+        
         Route::get('/admin/editincludesstyles','stylesController@readfileincludesstyles');
         Route::get('/admin/writefileincludecss','stylesController@writefileincludecss');
 
@@ -141,6 +137,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/admin/getPoblaciones', 'PoblacionController@getPoblacionesProvincia');
         Route::get('/admin/llenarLocalidades', 'PoblacionController@selectLocalidades');
         Route::resource('/admin/Promocion', 'PromocionController');
+        Route::get('/admin/CrearPromocion', 'PromocionController@CrearPromocion');
+        Route::post('/admin/NuevaPromocion','PromocionController@NuevaPromocion');
         Route::get('/admin/searchPromocion', 'PromocionController@search');
         Route::post('/admin/eliminarPromocion', 'PromocionController@eliminar');
 
@@ -158,6 +156,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/admin/NuevoAnuncio', 'AnuncioController@NuevoAnuncio');
     Route::post('/admin/eliminarAnuncio', 'AnuncioController@eliminar');
     Route::get('/admin/searchAnuncio', 'AnuncioController@search');
+    Route::get('/admin/listadoCitas/{id}', 'CitaController@listadoCitas');
+    Route::get('/admin/CitasAnuncio/{id}', 'CitaController@CitasAnuncio');
+    Route::get('/admin/nuevaCita/{id}', 'CitaController@NuevaCita');
+    Route::get('/admin/editCita/{id}', 'CitaController@EditarCita');
+    Route::post('/admin/guardarNuevaCita', 'CitaController@GuardarNuevaCita')->name('cita.guardar');
+    Route::post('/admin/updateCita', 'CitaController@UpdateCita')->name('cita.guardar');
         });
 
     Route::group(['middleware' => 'Delegado'], function () {

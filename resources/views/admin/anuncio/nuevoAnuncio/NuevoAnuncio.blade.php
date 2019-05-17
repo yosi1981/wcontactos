@@ -82,7 +82,7 @@
                 {{ Form::button('Crear Anuncio', array('type' => 'submit', 'class' => 'btn btn-primary')) }}
             </div>
             {{Form::close()}}
-                    @include('layouts.includes.admin.ventanas.Ventana')
+                    @include('layouts.includes.admin.ventanas.PieVentana')
             </div>
         </div>
     </div>

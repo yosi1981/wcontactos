@@ -68,6 +68,12 @@
 
                                     </td>
                                     <td>
+                        <button class="btn btn-sm btn-success">
+                            <a href="<?php echo e(URL::action('PromocionController@edit',$promocion->id)); ?>">
+                                <i class="ace-icon fa fa-pencil bigger-120">
+                                </i>
+                            </a>
+                        </button>                                        
                                                             <?php if($promocion->status==1): ?>
                                                             <button class="delete-modal btn btn-sm btn-danger" data-id="<?php echo e($promocion->id); ?>">
                                                                 DESHABILITAR

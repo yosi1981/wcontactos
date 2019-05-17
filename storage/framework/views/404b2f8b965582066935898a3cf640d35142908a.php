@@ -66,6 +66,7 @@
                             </i>
                         </button>
                         <?php endif; ?>
+                        <!--
                         <?php if($anu->activo == 1): ?>
                         <button class="btn btn-sm btn-warning">
                             <a href="<?php echo e(URL::to('/admin/listadoCitas/'.$anu->idanuncio)); ?>">
@@ -74,6 +75,7 @@
                             </a>
                         </button>
                         <?php endif; ?>
+                        -->
                          <button class="btn btn-sm btn-warning">
                             <a href="<?php echo e(URL::to('/admin/createAP/'.$anu->idanuncio)); ?>">
                                 <i class="ace-icon fa fa-calendar bigger-120">

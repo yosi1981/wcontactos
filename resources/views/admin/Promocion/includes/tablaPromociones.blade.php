@@ -60,6 +60,12 @@
                                         {{$promocion->status}}
                                     </td>
                                     <td>
+                        <button class="btn btn-sm btn-success">
+                            <a href="{{URL::action('PromocionController@edit',$promocion->id)}}">
+                                <i class="ace-icon fa fa-pencil bigger-120">
+                                </i>
+                            </a>
+                        </button>                                        
                                                             @if ($promocion->status==1)
                                                             <button class="delete-modal btn btn-sm btn-danger" data-id="{{$promocion->id}}">
                                                                 DESHABILITAR

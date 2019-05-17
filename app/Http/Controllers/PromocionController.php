@@ -90,9 +90,11 @@ class PromocionController extends Controller
      * @param  \App\Promocion  $promocion
      * @return \Illuminate\Http\Response
      */
-    public function edit(Promocion $promocion)
+    public function edit($id)
     {
-        //
+        $editPromocion= Promocion::findOrFail($id);
+
+        return view("admin.Promocion.editPromocion.editPromocion", ["promocion" => $editPromocion]);
     }
 
     /**
@@ -102,9 +104,16 @@ class PromocionController extends Controller
      * @param  \App\Promocion  $promocion
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Promocion $promocion)
+    public function update(Request $request, $id)
     {
-        //
+        $updPromocion=Promocion::findOrFail($id);
+        $updPromocion->descripcion=$request->get('descripcion');
+        $updPromocion->dias=$request->get('dias');
+        $updPromocion->importe=$request->get('importe');
+        $updPromocion->fecha_inicio=$request->get('fecha_inicio');
+        $updPromocion->fecha_fin=$request->get('fecha_fin');
+        $updPromocion->update();
+        return Redirect::to('/admin/Promocion');      
     }
 
     /**

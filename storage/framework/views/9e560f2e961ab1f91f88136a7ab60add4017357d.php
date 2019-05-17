@@ -76,7 +76,7 @@
 </span>
                             </a>
 <ul class="submenu">
-<?php $seccion = \Session::get('seccion_actual');if ($seccion === "editmenu") {echo "<li class='active open' style='text-align: left;'>";} else {echo "<li style='text-align: left;'>";}?><a href="<?php echo e(URL::to('/admin/editmenu/{idmenu?}')); ?>">
+<?php $seccion = \Session::get('seccion_actual');if ($seccion === "editmenu") {echo "<li class='active open' style='text-align: left;'>";} else {echo "<li style='text-align: left;'>";}?><a href="<?php echo e(URL::to('/admin/editmenu/')); ?>">
 
                                         <i class="menu-icon fa fa-arrow-right">
                                         </i>

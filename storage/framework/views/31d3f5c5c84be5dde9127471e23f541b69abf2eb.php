@@ -909,9 +909,9 @@
                     <div class="footer-content">
                         <span class="bigger-120">
                             <span class="blue bolder">
-                                Ace
+                                JAM
                             </span>
-                            Application © 2013-2014
+                            Application © 2018-2019
                         </span>
                         <span class="action-buttons">
                             <a href="#">

@@ -17,7 +17,9 @@
                 <!-- END SIDEBAR USER TITLE -->
                 <!-- SIDEBAR BUTTONS -->
                 <div class="profile-userbuttons">
+                  <a href="/Usuario/{{Auth::user()->id}}/edit">
                     <button type="button" class="btn btn-success btn-sm">Mi cuenta</button>
+                  </a>
                     <a href="/logout">
                     <button type="button" class="btn btn-danger btn-sm">Salir</button>
                     </a>

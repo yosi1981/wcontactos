@@ -35,57 +35,58 @@
                     @include('layouts.includes.admin.ventanas.CabeceraVentana')
 
 {!!Form::model($anuncioP,['method'=>'PATCH','route'=>['AP.update',$anuncioP->idanuncio_programado]])!!}
+        {{Form::token()}}
 <div class="row">
-    <div class="form-group col-md-4">
-        {{ Form::label('titulo', 'Tituloasdf') }}
-      {{ Form::text('titulo', $anuncioP->titulo, array('placeholder' => 'Introduce el Titulo', 'class' => 'form-control')) }}
+    <div class="form-group col-md-12">
+        {{ Form::label('titulo', 'Tituloasdf',array('class'=>'col-md-3 control-label no-padding-right')) }}
+      {{ Form::text('titulo', $anuncioP->titulo, array('placeholder' => 'Introduce el Titulo', 'class' => 'col-sm-9 form_control')) }}
     </div>
 </div>
 <div class="row">
-    <div class="form-group col-md-4">
-        {{ Form::label('descripcion', 'Descripcion') }}
-      {{ Form::text('descripcion', $anuncioP->descripcion, array('placeholder' => 'Introduce la descripción', 'class' => 'form-control')) }}
+    <div class="form-group col-md-12">
+        {{ Form::label('descripcion', 'Descripcion',array('class'=>'col-md-3 control-label no-padding-right')) }}
+      {{ Form::text('descripcion', $anuncioP->descripcion, array('placeholder' => 'Introduce la descripción', 'class' => 'col-sm-9 form_control')) }}
     </div>
 </div>
 <div class="row">
-    <div class="form-group col-md-4">
-        {{ Form::label('Pelo', 'Pelo') }}
-      {!! Form::select('idpelos',$pelos,$anuncioP->idpelos, $attributes = array('class'=>'form-control','id'=>'idpelos')) !!}
+    <div class="form-group col-md-12">
+        {{ Form::label('Pelo', 'Pelo',array('class'=>'col-md-3 control-label no-padding-right')) }}
+      {!! Form::select('idpelos',$pelos,$anuncioP->idpelos, $attributes = array('class'=>'col-md-9 chosen-single chosen-default','id'=>'idpelos')) !!}
     </div>
 </div>
 <div class="row">
-    <div class="form-group col-md-4">
-        {{ Form::label('Ojos', 'Ojos') }}
-      {!! Form::select('idojos',$ojos,$anuncioP->idojos, $attributes = array('class'=>'form-control','id'=>'idojos')) !!}
+    <div class="form-group col-md-12">
+        {{ Form::label('Ojos', 'Ojos',array('class'=>'col-md-3 control-label no-padding-right')) }}
+      {!! Form::select('idojos',$ojos,$anuncioP->idojos, $attributes = array('class'=>'col-md-9 chosen-single chosen-default','id'=>'idojos')) !!}
     </div>
 </div>
 <div class="row">
-    <div class="form-group col-md-4">
-        {{ Form::label('Estatura', 'Estatura') }}
-      {!! Form::select('idestatura',$estaturas,$anuncioP->idestatura, $attributes = array('class'=>'form-control','id'=>'idestatura')) !!}
+    <div class="form-group col-md-12">
+        {{ Form::label('Estatura', 'Estatura',array('class'=>'col-md-3 control-label no-padding-right')) }}
+      {!! Form::select('idestatura',$estaturas,$anuncioP->idestatura, $attributes = array('class'=>'col-md-9 chosen-single chosen-default','id'=>'idestatura')) !!}
     </div>
 </div>
 <div class="row">
-    <div class="form-group col-md-4">
-        {{ Form::label('fechainicio', 'Fecha Inicio') }}
-      {{ Form::input('date','fechainicio' , $anuncioP->fechainicio, ['class'=>'datepicker form-control','min'=>'2018-12-20']) }}
+    <div class="form-group col-md-12">
+        {{ Form::label('fechainicio', 'Fecha Inicio',array('class'=>'col-md-3 control-label no-padding-right')) }}
+      {{ Form::input('date','fechainicio' , $anuncioP->fechainicio, ['class'=>'datepicker col-md-9 ','min'=>'2018-12-20']) }}
     </div>
 </div>
 <div class="row">
-    <div class="form-group col-md-4">
-        {{ Form::label('fechafinal', 'Fecha Final') }}
-     {{ Form::input('date','fechafinal' , $anuncioP->fechafinal, ['class'=>'datepicker form-control','min'=>'2018-12-20']) }}
+    <div class="form-group col-md-12">
+        {{ Form::label('fechafinal', 'Fecha Final',array('class'=>'col-md-3 control-label no-padding-right')) }}
+     {{ Form::input('date','fechafinal' , $anuncioP->fechafinal, ['class'=>'datepicker col-md-9 ','min'=>'2018-12-20']) }}
     </div>
 </div>
 <div class="row">
-    <div class="form-group col-md-4">
-        {{ Form::label('Usuario', 'Usuario') }}
-      {!! Form::select('idusuario',$usuarios,$usu, $attributes = array('class'=>'form-control','id'=>'Provincia')) !!}
+    <div class="form-group col-md-12">
+        {{ Form::label('Usuario', 'Usuario',array('class'=>'col-md-3 control-label no-padding-right')) }}
+      {!! Form::select('idusuario',$usuarios,$usu, $attributes = array('class'=>'col-md-9 chosen-single chosen-default','id'=>'Provincia')) !!}
     </div>
 </div>
 <div class="row">
-    <div class="form-group col-md-4">
-        {{ Form::label('activo', 'Activo?') }}
+    <div class="form-group col-md-12">
+        {{ Form::label('activo', 'Activo?',array('class'=>'col-md-3 control-label no-padding-right')) }}
       @if($anuncioP->activo==1)
           {{Form::checkbox('activo', '1',true)}}
       @else
@@ -93,14 +94,33 @@
       @endif
     </div>
 </div>
-{{ Form::button('Actualizar Anuncio', array('type' => 'submit', 'class' => 'btn btn-primary')) }}
 
-{{ Form::close() }}
-<div id="cuerpoapls">
+<div class="row">
+    <div class="form-group col-md-12">
+        <button class="btn btn-warning" data-id="{{$anuncioP->idanuncio_programado}}" id="btnAddAnunProLocal" name="btnAddAnunProLocal">
+            Añadir localidad
+        </button>
+    </div>
 </div>
-<button class="btn btn-warning" data-id="{{$anuncioP->idanuncio_programado}}" id="btnAddAnunProLocal" name="AnunProLoca">
-    Nuevo
-</button>
+<div class="row">
+    <div class="form-group">
+      <div class="col-md-12" id="cuerpoapls">
+      </div>
+    </div>
+</div>
+</div>
+        <div class="modal-footer">        
+                <button class="btn btn-primary" type="submit">
+                    Guardar
+                </button>
+
+                <a href="Promocion">
+                    <button class="btn btn-default">
+                        Volver
+                    </button>
+                </a>
+        </div>
+{{ Form::close() }}
                     @include('layouts.includes.admin.ventanas.PieVentana')
                 </div>
             </div>
@@ -133,8 +153,8 @@
         getLocalidadesAP();
         });
 
-          $('#btnAddAnunProLocal').on('click',function(){
-
+          $('#btnAddAnunProLocal').on('click',function(e){
+                    e.preventDefault();
             var url="{{URL::to('/admin/createAnunProLoca')}}" + "/" + $(this).data('id') ;
             $.ajax({
                 type:'get',
@@ -152,9 +172,10 @@
 
             }).fail(function(data){
 
-                            })})
+                            })});
 
-      $(document).on('click','.editlocalidadAP',function(){
+      $(document).on('click','.editlocalidadAP',function(e){
+           e.preventDefault();
            var url="{{URL::to('/admin/getAnuncioProLocal')}}"+"/"+$(this).data('id');
             $.ajax({
                 type : 'get',
@@ -164,7 +185,8 @@
                 $('#editAnunProLoca').modal('show');
             })
       });
-      $(document).on('click','.deleteAPpre',function(){
+      $(document).on('click','.deleteAPpre',function(e){
+        e.preventDefault();
            var url="{{URL::to('/admin/deleteAPLpre')}}"+"/"+$(this).data('id');
             $.ajax({
                 type : 'get',
@@ -174,7 +196,8 @@
                 $('#deleteAnunProLoca').modal('show');
             })
       });
-     $(document).on('click','.deleteAPLpost',function(){
+     $(document).on('click','.deleteAPLpost',function(e){
+      e.preventDefault();
            var url="{{URL::to('/admin/deleteAPLpost')}}"+"/"+$(this).data('id');
             $.ajax({
                 type : 'get',
@@ -184,6 +207,7 @@
                 $('#deleteAnunProLoca').modal('hide');
             })
       });
+     
       $(document).on('click', '.guardar', function(){
             var form=$('#frmAnunProLoca');
             var formData=form.serialize();
@@ -206,7 +230,9 @@
 
                             })
         });
-     $(document).on('click', '.EditProblacion', function(){
+      
+     $(document).on('click', '.EditProblacion', function(e){
+      e.preventDefault();
             var form=$('#frmeditAnunProLoca');
             var formData=form.serialize();
             var url="{{URL::to('/admin/UpdateAPL')}}";

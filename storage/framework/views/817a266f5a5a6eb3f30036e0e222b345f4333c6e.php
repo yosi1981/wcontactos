@@ -82,11 +82,17 @@
 
                                     </td>
                                     <td>
-                                        <?php echo e($promocion->fecha_inicio); ?>
+                                        <?php
+                                            $fecha = date("d-m-Y", strtotime($promocion->fecha_inicio));
+                                        ?>
+                                        <?php echo e($fecha); ?>
 
                                     </td>
                                     <td>
-                                        <?php echo e($promocion->fecha_fin); ?>
+                                        <?php
+                                            $fecha = date("d-m-Y", strtotime($promocion->fecha_fin));
+                                        ?>
+                                        <?php echo e($fecha); ?>
 
                                     </td>
                                     <td>

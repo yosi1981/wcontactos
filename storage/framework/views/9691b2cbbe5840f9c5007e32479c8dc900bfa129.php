@@ -53,11 +53,17 @@
 
                                                 </td>
                                                 <td>
-                                                    <?php echo e($anu->fechainicio); ?>
+                                                    <?php
+                                                        $fecha = date("d-m-Y", strtotime($anu->fechainicio));
+                                                    ?>
+                                                    <?php echo e($fecha); ?>
 
                                                 </td>
                                                 <td>
-                                                    <?php echo e($anu->fechafinal); ?>
+                                                    <?php
+                                                        $fecha = date("d-m-Y", strtotime($anu->fechafinal));
+                                                    ?>
+                                                    <?php echo e($fecha); ?>
 
                                                 </td>
                                                 <td>

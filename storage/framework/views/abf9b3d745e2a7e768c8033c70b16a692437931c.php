@@ -3,6 +3,7 @@
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('contenido'); ?>
     <?php echo $__env->make('admin.provincia.poblacion.modal-delete', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('admin.provincia.poblacion.nuevaPoblacion', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <div class="main-content">
     <div class="main-content-inner">
         <div class="breadcrumbs ace-save-state" id="breadcrumbs">
@@ -38,7 +39,6 @@
             </ul>
         </div>
         <?php endif; ?>
-            <?php echo $__env->make('admin.provincia.poblacion.nuevaPoblacion', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
     <?php echo Form::model($provincia,['method'=>'PATCH','route'=>['Provincia.update',$provincia->idprovincia]]); ?>
 
@@ -73,67 +73,68 @@
 
             </div>
         </div>
-        <div class="form-group">
-            <button class="btn btn-success" type="submit">
-                Guardar
-            </button>
-
-            <a href="Provincia">
-                <button class="btn btn-info">
-                    Volver
+        <div class="row">        
+            <div class="form-group  col-md-12">
+                <button class="btn btn-warning" data-id="<?php echo e($provincia->idprovincia); ?>" id="btnAddPoblacion" name="btnAddPoblacion">
+                    Añadir localidad
                 </button>
-            </a>
+            </div>
         </div>
-        <?php echo Form::close(); ?>
+       <div class="row">
+                <div class="form-group" >
+                        <div class="col-md-12"  id="cuerpo">
+                            <div class="table-responsive" style="align-content: center;">
+                                <table class="table table-striped table-bordered table-condensed table-hover">
+                                    <thead>
+                                        <th>
+                                            Id Poblacion
+                                        </th>
+                                        <th>
+                                            Nombre
+                                        </th>
+                                        <th>
+                                            acciones
+                                        </th>
+                                    </thead>
+                                    <?php $__currentLoopData = $poblaciones; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pobla): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <tr>
+                                        <td>
+                                            <?php echo e($pobla->idlocalidad); ?>
 
-<div class="row">
-        <div class="form-group" >
-                <div class="col-md-12" style="padding-left: 50px;padding-right: 50px" id="cuerpo">
-                    <div class="table-responsive" style="align-content: center;">
-                        <table class="table table-striped table-bordered table-condensed table-hover">
-                            <thead>
-                                <th>
-                                    Id Poblacion
-                                </th>
-                                <th>
-                                    Nombre
-                                </th>
-                                <th>
-                                    acciones
-                                </th>
-                            </thead>
-                            <?php $__currentLoopData = $poblaciones; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pobla): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <tr>
-                                <td>
-                                    <?php echo e($pobla->idlocalidad); ?>
+                                        </td>
+                                        <td>
+                                            <?php echo e($pobla->nombre); ?>
 
-                                </td>
-                                <td>
-                                    <?php echo e($pobla->nombre); ?>
-
-                                </td>
-                                <td>
-                                    <button class="editlocalidad btn btn-info" data-id="<?php echo e($pobla->idlocalidad); ?>" id="btnEditarPoblacion" name="btnEditarPoblacion">
-                                        Editar
-                                    </button>
-                                    <button class="delete-modal btn btn-danger" data-id="<?php echo e($pobla->idlocalidad); ?>">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </table>
-                    </div>
+                                        </td>
+                                        <td>
+                                            <button class="editlocalidad btn btn-info" data-id="<?php echo e($pobla->idlocalidad); ?>" id="btnEditarPoblacion" name="btnEditarPoblacion">
+                                                Editar
+                                            </button>
+                                            <button class="delete-modal btn btn-danger" data-id="<?php echo e($pobla->idlocalidad); ?>">
+                                                Eliminar
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </table>
+                            </div>
+                        </div>
                 </div>
         </div>
 </div>
-        <div class="form-group" >
-                <button class="btn btn-warning" data-id="<?php echo e($provincia->idprovincia); ?>" id="btnAddPoblacion" name="btnAddPoblacion">
-                    Nuevo
+        <div class="modal-footer">        
+                <button class="btn btn-primary" type="submit">
+                    Guardar
                 </button>
+
+                <a href="Provincia">
+                    <button class="btn btn-default">
+                        Volver
+                    </button>
+                </a>
         </div>
-    </div>
-</div>
+    <?php echo Form::close(); ?>
+
 <div aria-hidden="true" class="modal fade modal-slide-in-right" id="mdlEditarPoblacion" role="dialog">
 </div>
                     <?php echo $__env->make('layouts.includes.admin.ventanas.PieVentana', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
@@ -165,10 +166,11 @@
             TweenMax.to("#widget-box-3", 0.4, { scale: 1, ease: Sine.easeInOut });
             $('.modal').appendTo("body");
         });
-        $('#btnAddPoblacion').on('click',function(){
+        $('#btnAddPoblacion').on('click',function(e){
+            e.preventDefault();
             $('#idprovioculto').val($(this).data('id'));
             $('#Poblacion').modal('show');
-        })
+        });
         $('#frmPoblacion').on('submit',function(e){
             e.preventDefault();
             var form=$('#frmPoblacion');
@@ -191,9 +193,10 @@
             }).fail(function(data){
 
                             })
-        })
+        });
 
-        $(document).on('click', '.editlocalidad', function(){
+        $(document).on('click', '.editlocalidad', function(e){
+            e.preventDefault();
             var url="<?php echo e(URL::to('/admin/editarlocalidad')); ?>";
             var id=$(this).data('id')
             $.ajax({
@@ -215,7 +218,7 @@
             }).fail(function(data){
 
                             })
-        })
+        });
         $('#mdlEditarPoblacion').on('submit',function(e){
             e.preventDefault();
             var url="<?php echo e(URL::to('/admin/actualizarlocalidad')); ?>";
@@ -237,11 +240,12 @@
           });
         });
 
-        $(document).on('click', '.delete-modal', function(){
+        $(document).on('click', '.delete-modal', function(e){
+            e.preventDefault();
             $('.id').text("");
             $('.id').text($(this).data('id'));
             $('#modal-delete').modal('show');
-        })
+        });
         $('.modal-footer').on('click', '.delete', function(e) {
             e.preventDefault();
             var url="<?php echo e(URL::to('/admin/eliminarlocalidad')); ?>";

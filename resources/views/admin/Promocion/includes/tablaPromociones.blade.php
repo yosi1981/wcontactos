@@ -48,10 +48,16 @@
                                         {{$promocion->importe}}
                                     </td>
                                     <td>
-                                        {{$promocion->fecha_inicio}}
+                                        <?php
+                                            $fecha = date("d-m-Y", strtotime($promocion->fecha_inicio));
+                                        ?>
+                                        {{$fecha}}
                                     </td>
                                     <td>
-                                        {{$promocion->fecha_fin}}
+                                        <?php
+                                            $fecha = date("d-m-Y", strtotime($promocion->fecha_fin));
+                                        ?>
+                                        {{$fecha}}
                                     </td>
                                     <td>
                                         {{$promocion->numcompras}}

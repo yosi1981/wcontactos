@@ -9,8 +9,8 @@
 					<h4 class="modal-title">Editar {{$poblacion->nombre}} de {{$provincia->nombre}}</h4>
 				</div>
 
-				<div class="modal-body">		
 				<form action="/admin/actualizarlocalidad" method "post" id="frmEditPoblacion">
+				<div class="modal-body">		
 						<div class="row">
 							<div class="col-lg-4 col-sm-4">
 								<div class="form-group">
@@ -38,7 +38,7 @@
 
 						<button type="button" value="save" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 						<button class="guardarEditProblacion btn btn-primary" type="submit">Guardar</button>
-					</form>
 				</div>
+					</form>
 			</div>
 		</div>

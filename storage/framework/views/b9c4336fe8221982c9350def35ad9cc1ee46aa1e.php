@@ -8,8 +8,8 @@
 					<h4 class="modal-title">Nueva Localidad</h4>
 				</div>
 
+					<form action="/admin/nuevaPoblacion" method="post" id="frmPoblacion">
 				<div class="modal-body">		
-					<form action="/admin/nuevaPoblacion" method "post" id="frmPoblacion">
 						<div class="row">
 							<div class="col-lg-4 col-sm-4">Nombre
 								<div class="form-group">
@@ -24,8 +24,8 @@
 				<div class="modal-footer">
 					<button type="button" value="save" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 					<button type="submit" class="btn btn-primary">Confirmar</button>
-										</form>
 				</div>
+				</form>
 			</div>
 		</div>
 

@@ -7,8 +7,8 @@
 					</button>
 					<h4 class="modal-title">Eliminar Localidad</h4>
 				</div>
+				<form class="form-horizontal" role="form">
 				<div class="modal-body">
-					<form class="form-horizontal" role="form">
 						<p>Confirme si desea Eliminar la Localidad :</p>
 						<span class="hidden id"></span>
 				</div>
@@ -16,8 +16,8 @@
 					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 					<button type="submit" class="delete btn btn-primary">Confirmar</button>
 				</div>
+				</form>
 			</div>
 		</div> 
-	</form>
 	
 </div>

@@ -1,4 +1,4 @@
-<div class="table-responsive">
+<div class="table-responsive"  style="align-content: center;">
     <table class="table table-striped table-bordered table-condensed table-hover">
         <thead>
             <th>

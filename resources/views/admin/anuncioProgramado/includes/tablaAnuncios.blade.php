@@ -50,10 +50,16 @@
                                                     {{$anu->titulo}}
                                                 </td>
                                                 <td>
-                                                    {{$anu->fechainicio}}
+                                                    <?php
+                                                        $fecha = date("d-m-Y", strtotime($anu->fechainicio));
+                                                    ?>
+                                                    {{$fecha}}
                                                 </td>
                                                 <td>
-                                                    {{$anu->fechafinal}}
+                                                    <?php
+                                                        $fecha = date("d-m-Y", strtotime($anu->fechafinal));
+                                                    ?>
+                                                    {{$fecha}}
                                                 </td>
                                                 <td>
                                                     <a href="{{URL::to('/Usuario/'.$anu->idusuario.'/edit')}}">

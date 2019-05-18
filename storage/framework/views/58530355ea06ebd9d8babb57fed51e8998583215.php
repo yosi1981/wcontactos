@@ -35,73 +35,75 @@
 
 <?php echo Form::model($anuncioP,['method'=>'PATCH','route'=>['AP.update',$anuncioP->idanuncio_programado]]); ?>
 
-<div class="row">
-    <div class="form-group col-md-4">
-        <?php echo e(Form::label('titulo', 'Tituloasdf')); ?>
+        <?php echo e(Form::token()); ?>
 
-      <?php echo e(Form::text('titulo', $anuncioP->titulo, array('placeholder' => 'Introduce el Titulo', 'class' => 'form-control'))); ?>
+<div class="row">
+    <div class="form-group col-md-12">
+        <?php echo e(Form::label('titulo', 'Tituloasdf',array('class'=>'col-md-3 control-label no-padding-right'))); ?>
+
+      <?php echo e(Form::text('titulo', $anuncioP->titulo, array('placeholder' => 'Introduce el Titulo', 'class' => 'col-sm-9 form_control'))); ?>
 
     </div>
 </div>
 <div class="row">
-    <div class="form-group col-md-4">
-        <?php echo e(Form::label('descripcion', 'Descripcion')); ?>
+    <div class="form-group col-md-12">
+        <?php echo e(Form::label('descripcion', 'Descripcion',array('class'=>'col-md-3 control-label no-padding-right'))); ?>
 
-      <?php echo e(Form::text('descripcion', $anuncioP->descripcion, array('placeholder' => 'Introduce la descripción', 'class' => 'form-control'))); ?>
-
-    </div>
-</div>
-<div class="row">
-    <div class="form-group col-md-4">
-        <?php echo e(Form::label('Pelo', 'Pelo')); ?>
-
-      <?php echo Form::select('idpelos',$pelos,$anuncioP->idpelos, $attributes = array('class'=>'form-control','id'=>'idpelos')); ?>
+      <?php echo e(Form::text('descripcion', $anuncioP->descripcion, array('placeholder' => 'Introduce la descripción', 'class' => 'col-sm-9 form_control'))); ?>
 
     </div>
 </div>
 <div class="row">
-    <div class="form-group col-md-4">
-        <?php echo e(Form::label('Ojos', 'Ojos')); ?>
+    <div class="form-group col-md-12">
+        <?php echo e(Form::label('Pelo', 'Pelo',array('class'=>'col-md-3 control-label no-padding-right'))); ?>
 
-      <?php echo Form::select('idojos',$ojos,$anuncioP->idojos, $attributes = array('class'=>'form-control','id'=>'idojos')); ?>
-
-    </div>
-</div>
-<div class="row">
-    <div class="form-group col-md-4">
-        <?php echo e(Form::label('Estatura', 'Estatura')); ?>
-
-      <?php echo Form::select('idestatura',$estaturas,$anuncioP->idestatura, $attributes = array('class'=>'form-control','id'=>'idestatura')); ?>
+      <?php echo Form::select('idpelos',$pelos,$anuncioP->idpelos, $attributes = array('class'=>'col-md-9 chosen-single chosen-default','id'=>'idpelos')); ?>
 
     </div>
 </div>
 <div class="row">
-    <div class="form-group col-md-4">
-        <?php echo e(Form::label('fechainicio', 'Fecha Inicio')); ?>
+    <div class="form-group col-md-12">
+        <?php echo e(Form::label('Ojos', 'Ojos',array('class'=>'col-md-3 control-label no-padding-right'))); ?>
 
-      <?php echo e(Form::input('date','fechainicio' , $anuncioP->fechainicio, ['class'=>'datepicker form-control','min'=>'2018-12-20'])); ?>
-
-    </div>
-</div>
-<div class="row">
-    <div class="form-group col-md-4">
-        <?php echo e(Form::label('fechafinal', 'Fecha Final')); ?>
-
-     <?php echo e(Form::input('date','fechafinal' , $anuncioP->fechafinal, ['class'=>'datepicker form-control','min'=>'2018-12-20'])); ?>
+      <?php echo Form::select('idojos',$ojos,$anuncioP->idojos, $attributes = array('class'=>'col-md-9 chosen-single chosen-default','id'=>'idojos')); ?>
 
     </div>
 </div>
 <div class="row">
-    <div class="form-group col-md-4">
-        <?php echo e(Form::label('Usuario', 'Usuario')); ?>
+    <div class="form-group col-md-12">
+        <?php echo e(Form::label('Estatura', 'Estatura',array('class'=>'col-md-3 control-label no-padding-right'))); ?>
 
-      <?php echo Form::select('idusuario',$usuarios,$usu, $attributes = array('class'=>'form-control','id'=>'Provincia')); ?>
+      <?php echo Form::select('idestatura',$estaturas,$anuncioP->idestatura, $attributes = array('class'=>'col-md-9 chosen-single chosen-default','id'=>'idestatura')); ?>
 
     </div>
 </div>
 <div class="row">
-    <div class="form-group col-md-4">
-        <?php echo e(Form::label('activo', 'Activo?')); ?>
+    <div class="form-group col-md-12">
+        <?php echo e(Form::label('fechainicio', 'Fecha Inicio',array('class'=>'col-md-3 control-label no-padding-right'))); ?>
+
+      <?php echo e(Form::input('date','fechainicio' , $anuncioP->fechainicio, ['class'=>'datepicker col-md-9 ','min'=>'2018-12-20'])); ?>
+
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-md-12">
+        <?php echo e(Form::label('fechafinal', 'Fecha Final',array('class'=>'col-md-3 control-label no-padding-right'))); ?>
+
+     <?php echo e(Form::input('date','fechafinal' , $anuncioP->fechafinal, ['class'=>'datepicker col-md-9 ','min'=>'2018-12-20'])); ?>
+
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-md-12">
+        <?php echo e(Form::label('Usuario', 'Usuario',array('class'=>'col-md-3 control-label no-padding-right'))); ?>
+
+      <?php echo Form::select('idusuario',$usuarios,$usu, $attributes = array('class'=>'col-md-9 chosen-single chosen-default','id'=>'Provincia')); ?>
+
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-md-12">
+        <?php echo e(Form::label('activo', 'Activo?',array('class'=>'col-md-3 control-label no-padding-right'))); ?>
 
       <?php if($anuncioP->activo==1): ?>
           <?php echo e(Form::checkbox('activo', '1',true)); ?>
@@ -112,16 +114,34 @@
       <?php endif; ?>
     </div>
 </div>
-<?php echo e(Form::button('Actualizar Anuncio', array('type' => 'submit', 'class' => 'btn btn-primary'))); ?>
 
+<div class="row">
+    <div class="form-group col-md-12">
+        <button class="btn btn-warning" data-id="<?php echo e($anuncioP->idanuncio_programado); ?>" id="btnAddAnunProLocal" name="btnAddAnunProLocal">
+            Añadir localidad
+        </button>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <div class="col-md-12" id="cuerpoapls">
+      </div>
+    </div>
+</div>
+</div>
+        <div class="modal-footer">        
+                <button class="btn btn-primary" type="submit">
+                    Guardar
+                </button>
 
+                <a href="Promocion">
+                    <button class="btn btn-default">
+                        Volver
+                    </button>
+                </a>
+        </div>
 <?php echo e(Form::close()); ?>
 
-<div id="cuerpoapls">
-</div>
-<button class="btn btn-warning" data-id="<?php echo e($anuncioP->idanuncio_programado); ?>" id="btnAddAnunProLocal" name="AnunProLoca">
-    Nuevo
-</button>
                     <?php echo $__env->make('layouts.includes.admin.ventanas.PieVentana', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                 </div>
             </div>
@@ -154,8 +174,8 @@
         getLocalidadesAP();
         });
 
-          $('#btnAddAnunProLocal').on('click',function(){
-
+          $('#btnAddAnunProLocal').on('click',function(e){
+                    e.preventDefault();
             var url="<?php echo e(URL::to('/admin/createAnunProLoca')); ?>" + "/" + $(this).data('id') ;
             $.ajax({
                 type:'get',
@@ -173,9 +193,10 @@
 
             }).fail(function(data){
 
-                            })})
+                            })});
 
-      $(document).on('click','.editlocalidadAP',function(){
+      $(document).on('click','.editlocalidadAP',function(e){
+           e.preventDefault();
            var url="<?php echo e(URL::to('/admin/getAnuncioProLocal')); ?>"+"/"+$(this).data('id');
             $.ajax({
                 type : 'get',
@@ -185,7 +206,8 @@
                 $('#editAnunProLoca').modal('show');
             })
       });
-      $(document).on('click','.deleteAPpre',function(){
+      $(document).on('click','.deleteAPpre',function(e){
+        e.preventDefault();
            var url="<?php echo e(URL::to('/admin/deleteAPLpre')); ?>"+"/"+$(this).data('id');
             $.ajax({
                 type : 'get',
@@ -195,7 +217,8 @@
                 $('#deleteAnunProLoca').modal('show');
             })
       });
-     $(document).on('click','.deleteAPLpost',function(){
+     $(document).on('click','.deleteAPLpost',function(e){
+      e.preventDefault();
            var url="<?php echo e(URL::to('/admin/deleteAPLpost')); ?>"+"/"+$(this).data('id');
             $.ajax({
                 type : 'get',
@@ -205,6 +228,7 @@
                 $('#deleteAnunProLoca').modal('hide');
             })
       });
+     
       $(document).on('click', '.guardar', function(){
             var form=$('#frmAnunProLoca');
             var formData=form.serialize();
@@ -227,7 +251,9 @@
 
                             })
         });
-     $(document).on('click', '.EditProblacion', function(){
+      
+     $(document).on('click', '.EditProblacion', function(e){
+      e.preventDefault();
             var form=$('#frmeditAnunProLoca');
             var formData=form.serialize();
             var url="<?php echo e(URL::to('/admin/UpdateAPL')); ?>";

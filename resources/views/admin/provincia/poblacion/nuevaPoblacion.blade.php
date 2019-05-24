@@ -13,7 +13,7 @@
 						<div class="row">
 							<div class="col-lg-4 col-sm-4">Nombre
 								<div class="form-group">
-									<input type="text" name="nombre" id="nombre" placeholder="Nombre...">
+									<input type="text" name="nombre" id="nombre" class="texto" placeholder="Nombre...">
 									<input type="hidden"  id="idprovioculto" name="idprovioculto" class="form-control">
 
 								</div>

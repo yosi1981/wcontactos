@@ -76,7 +76,10 @@
 
                                     </td>
                                     <td>
-                                        <?php echo e($paquete->fechaUlt); ?>
+                                        <?php
+                                            $fecha = date("d-m-Y", strtotime($paquete->fechaUlt));
+                                            ?>
+                                        <?php echo e($fecha); ?>
 
                                     </td>
                                     <td>

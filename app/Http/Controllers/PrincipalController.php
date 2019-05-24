@@ -121,7 +121,6 @@ class PrincipalController extends Controller
                     $newandia->idlocalidad  = $poblacion->idlocalidad;
                     $newandia->idprovincia  = $provincia->idprovincia;
                     $newandia->idadminPro   = $provincia->adminPro->id;
-                    $newandia->iddelegado   = $provincia->delegado->id;
                     $newandia->idpartner    = $an1->UserAnunciante->Partner->id;
                     $newandia->numvisitas   = 1;
                     //$usuarioAnuncio                   = Useranunciante::findorfail($an1->UserAnunciante->id);

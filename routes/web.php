@@ -56,6 +56,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', 'HomeController@index');
     
         Route::group(['middleware' => 'Admin'], function () {
+        
+            route::get('/admin/pruebamenu','menuController@PruebaMultimenu');
+
             Route::get('/admin/mas','masController1@indexmas');
         
         Route::get('/admin/mas','masController1@indexmas');
@@ -83,6 +86,8 @@ Route::group(['middleware' => 'auth'], function () {
     
         Route::get('/admin/SaveToFile/{idmenu}','menuController@saveToFile');
         Route::get('/admin/editmenu/{idmenu?}','menuController@editmenu');
+        Route::get('/admin/subiritem/{idmenuitem}','menuController@subirItem');
+        Route::get('/admin/bajaritem/{idmenuitem}','menuController@bajarItem');
         Route::get('/admin/eliminarmenuitem/{id}','menuController@eliminarmenuitem');
         Route::get('/admin/showmenu/{idmenu}/{edit}','menuController@showmenu');
         Route::get('/admin/newmenuitem/{idmenu}/{idmenuitem}','menuController@newmenuitem');

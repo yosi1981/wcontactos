@@ -50,16 +50,6 @@
         </div>
         <div class="row">
             <div class="form-group col-md-12">
-                {{ Form::label('habilitado', 'habilitado',array('class'=>'col-md-3 control-label no-padding-right')) }}
-                @if ($provincia->habilitado=='1')
-                    {!! Form::checkbox('habilitado', '1',true) !!}
-                @else
-                    {!! Form::checkbox('habilitado', '0',false) !!}
-                @endif
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-md-12">
                 {{ Form::label('idadmPro', 'idadmPro',array('class'=>'col-md-3 control-label no-padding-right')) }}
                 {!! Form::select('idadmPro',$admPros,$admPro, $attributes = array('class'=>'col-md-9 chosen-single chosen-default','id'=>'idadmPro'))!!}
             </div>
@@ -116,13 +106,13 @@
                     Guardar
                 </button>
 
-                <a href="Provincia">
+    {!!Form::close()!!}
+                <a href="/admin/Provincia">
                     <button class="btn btn-default">
                         Volver
                     </button>
                 </a>
         </div>
-    {!!Form::close()!!}
 <div aria-hidden="true" class="modal fade modal-slide-in-right" id="mdlEditarPoblacion" role="dialog">
 </div>
                     @include('layouts.includes.admin.ventanas.PieVentana')
@@ -157,6 +147,7 @@
         $('#btnAddPoblacion').on('click',function(e){
             e.preventDefault();
             $('#idprovioculto').val($(this).data('id'));
+            $('.texto').val('');
             $('#Poblacion').modal('show');
         });
         $('#frmPoblacion').on('submit',function(e){

@@ -12,12 +12,12 @@
                     Crear Provincia
                 </h4>
             </div>
-            <div class="modal-body">
                 <form action="/admin/nuevaProvincia" id="frmProvincia" method="POST">
+            <div class="modal-body">
                     <div class="row">
                         <div class="form-group col-md-12">
                             {{ Form::label('nombre', 'Nombre',array('class'=>'col-md-3 control-label no-padding-right')) }}
-                            {{ Form::text('nombre',null, array('placeholder' => 'Introduce el nombre', 'class' => ' col-sm-9 form_control')) }}
+                            {{ Form::text('nombre',null, array('placeholder' => 'Introduce el nombre', 'class' => 'texto1 col-sm-9 form_control')) }}
                         </div>
                     </div>
                     <div class="row">
@@ -27,13 +27,7 @@
 
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="form-group col-md-12">
-                            {{ Form::label('habilitado', 'Habilitado',array('class'=>'col-md-3 control-label no-padding-right')) }}
-                            {!! Form::checkbox('habilitado', '1',true) !!}
-                        </div>
-                    </div>
-                </form>
+
             </div>
             <div class="modal-footer">
                 <button class="btn btn-default" data-dismiss="modal" type="button">
@@ -43,6 +37,7 @@
                     Confirmar
                 </button>
             </div>
+                </form>
         </div>
     </div>
 </div>

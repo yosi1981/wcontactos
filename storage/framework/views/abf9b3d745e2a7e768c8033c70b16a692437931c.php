@@ -57,10 +57,10 @@
                 <?php echo e(Form::label('habilitado', 'habilitado',array('class'=>'col-md-3 control-label no-padding-right'))); ?>
 
                 <?php if($provincia->habilitado=='1'): ?>
-                    <?php echo Form::checkbox('habilitado', '1',true); ?>
+                    <?php echo Form::checkbox('habilitado', 1,true); ?>
 
                 <?php else: ?>
-                    <?php echo Form::checkbox('habilitado', '0',false); ?>
+                    <?php echo Form::checkbox('habilitado', 0,false); ?>
 
                 <?php endif; ?>
             </div>
@@ -127,14 +127,14 @@
                     Guardar
                 </button>
 
-                <a href="Provincia">
+    <?php echo Form::close(); ?>
+
+                <a href="/admin/Provincia">
                     <button class="btn btn-default">
                         Volver
                     </button>
                 </a>
         </div>
-    <?php echo Form::close(); ?>
-
 <div aria-hidden="true" class="modal fade modal-slide-in-right" id="mdlEditarPoblacion" role="dialog">
 </div>
                     <?php echo $__env->make('layouts.includes.admin.ventanas.PieVentana', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
@@ -169,6 +169,7 @@
         $('#btnAddPoblacion').on('click',function(e){
             e.preventDefault();
             $('#idprovioculto').val($(this).data('id'));
+            $('.texto').val('');
             $('#Poblacion').modal('show');
         });
         $('#frmPoblacion').on('submit',function(e){

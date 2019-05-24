@@ -11,7 +11,7 @@
 <?php $__env->startSection('contenido'); ?>
 <div class="main-content">
     <div class="main-content-inner">
-        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs" >
         </div>
         <div class="page-content">
             <div class="row" >
@@ -92,7 +92,46 @@
                             });
 
     });
+    $(document).on('click','.subir ',function(e){
+        e.preventDefault();
+        idmenuitem=$(this).data('idmenuitem');
+            var url="<?php echo e(URL::to('/admin/subiritem')); ?>"+"/"+idmenuitem;
+            $.ajax({
+                type:'get',
+                url: url,
+                dataType: 'json',
+                headers: {
+                       'X-CSRF-TOKEN': '<?php echo e(csrf_token()); ?>',
+                   },
+                success:function(data){
+                    MostrarMenu();
+                    $('#cuerpo').html("");
+             }
+                }).fail(function(data){
+                    alert('algo falla');
+                            });
 
+    });
+    $(document).on('click','.bajar ',function(e){
+        e.preventDefault();
+        idmenuitem=$(this).data('idmenuitem');
+            var url="<?php echo e(URL::to('/admin/bajaritem')); ?>"+"/"+idmenuitem;
+            $.ajax({
+                type:'get',
+                url: url,
+                dataType: 'json',
+                headers: {
+                       'X-CSRF-TOKEN': '<?php echo e(csrf_token()); ?>',
+                   },
+                success:function(data){
+                    MostrarMenu();
+                    $('#cuerpo').html("");
+             }
+                }).fail(function(data){
+                    alert('algo falla');
+                            });
+
+    });
     $(document).on('click','.eliminar ',function(e){
         e.preventDefault();
         idmenuitem=$(this).data('idmenuitem');

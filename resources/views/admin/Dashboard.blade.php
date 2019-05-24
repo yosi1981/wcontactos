@@ -8,8 +8,7 @@
         <h3>
             DASHBOARD ADMINISTRADOR
         </h3>
-<div class="col-sm-6 ">
-										<div class="menu">
+										<div class="menu ">
 											<ol class="menu-list">
 												<li class="menu-item menu2-item" >
 													<div class="menu-handle menu2-handle">
@@ -18,16 +17,16 @@
 													<div class="menu2-content" ><i style="position:relative;left:-5px;" class="plus  fa fa-plus  "  aria-hidden="true"></i>Provincia</div>
 											<ol class="menu-list" style="display:none;" >
 												<li class="menu-item menu2-item" >
-													<a href="http://www.google.es">
+													<a class="speciala" href="http://www.google.es">
 													<div class="menu-handle menu2-handle" >
-														<i class="normal-icon ace-icon fa fa-image blue bigger-130"></i>
+														<i class="normal-icon ace-icon fa fa-tachometer blue bigger-130 fa fa-image "></i>
 													</div>
 													<div class="menu2-content" >Provincia</div>
 													</a>
 												</li>
 												<li class="menu-item menu2-item" >
 													<div class="menu-handle menu2-handle" >
-														<i class="normal-icon ace-icon fa fa-pencil gree bigger-130"></i>
+														<i class="normal-icon ace-icon fa fa-amazon gree bigger-130"></i>
 													</div>
 													<div class="menu2-content">Imagenes</div>
 												</li>
@@ -35,14 +34,21 @@
 													<div class="menu-handle menu2-handle" >
 														<i class="normal-icon ace-icon fa fa-tachometer red bigger-130"></i>
 													</div>
-													<div class="menu2-content">Anuncios</div>
+													<div class="menu2-content">Anuncios
+																		<i class="subir  fa fa-arrow-up gree  bigger-130" aria-hidden="true"></i>
+																		<i class="bajar  fa fa-arrow-down gree bigger-130" aria-hidden="true"></i>																		
+																		<i class="crear  fa fa-folder  bigger-130" aria-hidden="true"></i>
+																		<i class="edicion  fa fa-pencil  bigger-130" aria-hidden="true"></i>
+
+																		<i class="papelera fa fa-trash  bigger-130" aria-hidden="true"></i>
+													</div>
 												</li>
 												<li class="menu-item menu2-item" >
 													<div class="menu-handle menu2-handle" >
 														<i class="normal-icon ace-icon fa fa-user blue bigger-130"></i>
 													</div>
 												<div class="menu2-content"><i style="position:relative;left:-5px;"  class="plus  fa fa-plus  "  aria-hidden="true"></i>Usuarios
-																		<i class="edicion  fa fa-edit  bigger-130" aria-hidden="true"></i>
+																		<i class="edicion  fa fa-pencil  bigger-130" aria-hidden="true"></i>
 
 																		<i class=" fa fa-trash  bigger-130 papelera" aria-hidden="true"></i>
                             </div>
@@ -70,7 +76,10 @@
 														<i class="normal-icon ace-icon fa fa-address-book blue bigger-130"></i>
 													</div>
 													<div class="menu2-content"><i style="position:relative;left:-5px;" class="plus fa fa-plus" aria-hidden="true"></i><a href="#">Usuarios
-																		<i class="edicion  fa fa-edit  bigger-130" aria-hidden="true"></i>
+																		<i class="subir  fa fa-arrow-up gree  bigger-130" aria-hidden="true"></i>
+																		<i class="bajar  fa fa-arrow-down gree bigger-130" aria-hidden="true"></i>																		
+																		<i class="crear  fa fa-folder  bigger-130" aria-hidden="true"></i>
+																		<i class="edicion  fa fa-pencil  bigger-130" aria-hidden="true"></i>
 
 																		<i class="papelera fa fa-trash  bigger-130" aria-hidden="true"></i>
                             </a>
@@ -105,7 +114,7 @@
 																		<i class=" fa fa-file-text  bigger-130 " style="color: #399c19;" aria-hidden="true"></i>
                             								</a>
 															<a href="#" >
-																		<i class=" fa fa-edit  bigger-130" aria-hidden="true"></i>
+																		<i class=" fa fa-pencil  bigger-130" aria-hidden="true"></i>
 								                            </a>
 															<a href="#" >
 																		<i class=" fa fa-trash  bigger-130 " style="color: #ec2b0a;" aria-hidden="true"></i>
@@ -154,7 +163,7 @@
 														<i class="normal-icon ace-icon fa fa-address-book blue bigger-130"></i>
 													</div>
 													<div class="menu2-content"><i style="position:relative;left:-5px;"  class="plus  fa fa-plus  "  aria-hidden="true"></i><a href="#">Usuarios
-																		<i class="edicion  fa fa-edit  bigger-130" aria-hidden="true"></i>
+																		<i class="edicion  fa fa-pencil  bigger-130" aria-hidden="true"></i>
 
 																		<i class="papelera fa fa-trash  bigger-130" aria-hidden="true"></i>
                             </a>
@@ -183,7 +192,7 @@
 														<i class="normal-icon ace-icon fa fa-address-book blue bigger-130"></i>
 													</div>
 													<div class="menu2-content"><a href="#">Usuarios
-																		<i class="edicion  fa fa-edit  bigger-130" aria-hidden="true"></i>
+																		<i class="edicion  fa fa-pencil  bigger-130" aria-hidden="true"></i>
 
 																		<i class="papelera fa fa-trash  bigger-130" aria-hidden="true"></i>
                             </a>
@@ -198,7 +207,7 @@
 														<i class="normal-icon ace-icon fa fa-address-book blue bigger-130"></i>
 													</div>
 													<div class="menu2-content"><i style="position:relative;left:-5px;"  class="plus  fa fa-plus  "  aria-hidden="true"></i><a href="#">Usuarios
-																		<i class="edicion  fa fa-edit  bigger-130" aria-hidden="true"></i>
+																		<i class="edicion  fa fa-pencil  bigger-130" aria-hidden="true"></i>
 
 																		<i class="papelera fa fa-trash  bigger-130" aria-hidden="true"></i>
                             </a>
@@ -227,7 +236,7 @@
 														<i class="normal-icon ace-icon fa fa-address-book blue bigger-130"></i>
 													</div>
 													<div class="menu2-content"><i style="position:relative;left:-5px;"  class="plus  fa fa-plus  "  aria-hidden="true"></i><a href="#">Usuarios
-																		<i class="edicion  fa fa-edit  bigger-130" aria-hidden="true"></i>
+																		<i class="edicion  fa fa-pencil  bigger-130" aria-hidden="true"></i>
 
 																		<i class="papelera fa fa-trash  bigger-130" aria-hidden="true"></i>
                             </a>
@@ -256,7 +265,7 @@
 														<i class="normal-icon ace-icon fa fa-address-book blue bigger-130"></i>
 													</div>
 													<div class="menu2-content"><a href="#">Usuarios
-																		<i class="edicion  fa fa-edit  bigger-130" aria-hidden="true"></i>
+																		<i class="edicion  fa fa-pencil  bigger-130" aria-hidden="true"></i>
 
 																		<i class="papelera fa fa-trash  bigger-130" aria-hidden="true"></i>
                             </a>
@@ -268,9 +277,9 @@
                         </li>
 											</ol>
 										</div>
-									</div>
     </div>
 </div>
+
 <style>
 .ace-icon {
     text-align: left;
@@ -282,29 +291,21 @@
 
 .blue {
     color: #478FCA;
-    position:absolute;
-    left:10px;
-    top:10px;
+
 
 }
 .red {
     color: #ec2b0a;
-    position:absolute;
-    left:10px;
-    top:10px;
 
 }
 
 .gree{
     color: #1dd01a;
-    position:absolute;
-    left:10px;
-    top:10px;
 
 }
 .menu {
     margin: 0;
-    max-width: 300px;
+    max-width: 400px;
     line-height: 20px;
 }
 .menu, .menu-item, .menu-list {
@@ -315,8 +316,14 @@
     display: block;
     padding: 10;
     list-style: none;
-}
 
+}
+i {
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:auto;
+	margin-bottom:auto;
+}
 .menu2-handle {
     left: 0;
     top: -5px;
@@ -343,18 +350,55 @@
 .menu2-handle+.menu2-content {
     padding-left: 55px;
 }
-.menu-handle:hover,.menu2-content:hover,a:hover{
+.menu2-content:hover,a:hover{
 	  cursor: pointer;
 	color: #478FCA;
 	background: #F4F6F7;
-	border-color: #DCE2E8
+	border-color: #DCE2E8;
 }
-
-.menu-handle:hover{
-	background:#b9c0c7;   
+.menu-item:hover>.menu2-content {
+	  cursor: pointer;
+	color: #478FCA;
+	background: #F4F6F7;
+	border-color: #DCE2E8;	
+box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
+}
+.speciala:hover>.menu2-content {
+	  cursor: pointer;
+	color: #478FCA;
+	background: #F4F6F7;
+	border-color: #DCE2E8;	
+box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
+}
+.menu-item:hover>.menu2-handle {
+	  cursor: pointer;
+	color: #478FCA;
+	background: #bdcbda;
+	border-color: #DCE2E8;	
+}
+.menu-item:hover>.menu2-handle>i {
+  	background:#bdcbda;	
+	margin-top:6px;
+  font-size: 200%!important;
+}
+.speciala:hover>.menu2-content {
+	  cursor: pointer;
+	color: #478FCA;
+	background: #F4F6F7;
+	border-color: #DCE2E8;	
+}
+.speciala:hover>.menu2-handle {
+	  cursor: pointer;
+	background: #bdcbda;
+	border-color: #DCE2E8;	
+}
+.speciala:hover>.menu2-handle>i {
+  	background:#bdcbda;	
+	margin-top:6px;
+  font-size: 200%!important;
 }
 .menu-handle{
-    border: 1px solid ##b9c0c7;
+    border: 1px solid #b9c0c7;
 	margin: 5px 0px;
 	background: #dae2ea;
 }
@@ -373,7 +417,33 @@
   right:28px;
   font-size: 120%!important;
 }
+.edicion:hover,.papelera:hover,.crear:hover,.subir:hover,.bajar:hover {
+  font-size: 140%!important;
 
+box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+}
+.crear {
+  position:absolute;
+  cursor: pointer;
+  color:#478FCA;
+  right:46px;
+  font-size: 120%!important;
+}
+
+.subir {
+  position:absolute;
+  cursor: pointer;
+color: #1dd01a;
+  right:81px;
+  font-size: 120%!important;
+}
+.bajar {
+  position:absolute;
+  cursor: pointer;
+color: #1dd01a;
+  right:64px;
+  font-size: 120%!important;
+}
 .menu2-content {
  
     padding-bottom: 0;

@@ -92,13 +92,7 @@ class ProvinciaController extends Controller
 			$provincia                = new Provincia;
 			$provincia->nombre        = $request->get('nombre');
 			$provincia->idresponsable = $request->get('idadmPro');
-			if ($request->get('habilitado')) {
-				$provincia->habilitado = '1';
-			} else {
-				$provincia->habilitado = '0';
-			}
 			$provincia->save();
-			\Session::put('seccion', "Provincia creada correctamente");
 
 			return response()->json($provincia);
 		}
@@ -126,9 +120,9 @@ class ProvinciaController extends Controller
 		$provincia         = Provincia::findOrFail($id);
 		$provincia->nombre = $request->get('nombre');
 		if ($request->get('habilitado')) {
-			$provincia->habilitado = '1';
+			$provincia->habilitado = 1;
 		} else {
-			$provincia->habilitado = '0';
+			$provincia->habilitado = 0;
 		}
 		$provincia->idresponsable = $request->get('idadmPro');
 		$provincia->update();

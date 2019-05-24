@@ -189,6 +189,8 @@
     }
 
         $('#btnAddProvincia').on('click',function(){
+
+            $('.texto1').val('');
             $('#Provincia').modal('show');
         })
 

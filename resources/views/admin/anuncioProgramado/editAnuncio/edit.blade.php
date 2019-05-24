@@ -85,15 +85,34 @@
     </div>
 </div>
 <div class="row">
-    <div class="form-group col-md-12">
-        {{ Form::label('activo', 'Activo?',array('class'=>'col-md-3 control-label no-padding-right')) }}
-      @if($anuncioP->activo==1)
-          {{Form::checkbox('activo', '1',true)}}
-      @else
-          {{Form::checkbox('activo', '0',false)}}
-      @endif
+    <div class="form-group col-md-12" >
+                                    <div class="col-md-3">
+                                    </div>
+                                    <label class="col-md-9" style="padding-left:  0px;">
+        @if($anuncioP->activo==0)
+          {{Form::checkbox('activo', 0,true,array('class'=>'ace'))}}
+        @else
+          {{Form::checkbox('activo', 1,false,array('class'=>'ace'))}}
+        @endif
+                                      <span class="lbl " > Mostrar mensaje "ULTIMO DIA"</span>
+                                    </label>
     </div>
 </div>
+<div class="row">
+    <div class="form-group col-md-12" >
+                                    <div class="col-md-3">
+                                    </div>
+                                    <label class="col-md-9" style="padding-left:  0px;">
+        @if($anuncioP->activo==0)
+          {{Form::checkbox('activo', 0,true,array('class'=>'ace'))}}
+        @else
+          {{Form::checkbox('activo', 1,false,array('class'=>'ace'))}}
+        @endif
+                                      <span class="lbl " > Mostrar mensaje "ULTIMO DIA"</span>
+                                    </label>
+    </div>
+</div>
+
 
 <div class="row">
     <div class="form-group col-md-12">
@@ -134,6 +153,9 @@
 }
 </style>
 <script>
+
+
+
     function getLocalidadesAP()
         {
             var url="{{URL::to('/admin/getAnunciosProLocal')}}"+"/"+"{{$anuncioP->idanuncio_programado}}";
@@ -145,12 +167,12 @@
             })
         }
 
-  $(document).ready(function() {
-        $("#widget-box-3").fadeIn();
-        TweenMax.from("#widget-box-3", 0.4, { scale: 0, ease: Sine.easeInOut });
-        TweenMax.to("#widget-box-3", 0.4, { scale: 1, ease: Sine.easeInOut });
-        $('.modal').appendTo("body");
-        getLocalidadesAP();
+        $(document).ready(function() {
+            $("#widget-box-3").fadeIn();
+            TweenMax.from("#widget-box-3", 0.4, { scale: 0, ease: Sine.easeInOut });
+            TweenMax.to("#widget-box-3", 0.4, { scale: 1, ease: Sine.easeInOut });
+            $('.modal').appendTo("body");
+            getLocalidadesAP();
         });
 
           $('#btnAddAnunProLocal').on('click',function(e){

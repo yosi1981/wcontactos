@@ -7,7 +7,7 @@
                 <div class="sidebar-shortcuts" id="sidebar-shortcuts" >
                     <ul class="nav nav-list">
         <?php $seccion = \Session::get('seccion_actual');if ( $seccion === "imagen") {echo "<li class='active open' style='text-align: left;'>";} else {echo "<li style='text-align: left;'>";}?><a  href="/admin/Imagen">
-    <i class="menu-icon fa fa-image">
+    <i class="menu-icon fa fa-hourglass-1">
                                 </i>
                                 <span class="menu-text">
 		IMAGEN
@@ -68,7 +68,7 @@
                                         </a>
 </li>
 </ul></li>
-<?php $seccion = \Session::get('seccion_actual');if ( $seccion === "config" or  $seccion === "editmenu") {echo "<li class='active open' style='text-align: left;'>";} else {echo "<li style='text-align: left;'>";}?><a class="dropdown-toggle" href="#">
+<?php $seccion = \Session::get('seccion_actual');if ( $seccion === "config" or  $seccion === "editmenu" or  $seccion === "editincludecss" or  $seccion === "editincludescripts" or  $seccion === "asdf") {echo "<li class='active open' style='text-align: left;'>";} else {echo "<li style='text-align: left;'>";}?><a class="dropdown-toggle" href="#">
     <i class="menu-icon fa fa-wheelchair">
                                 </i>
                                 <span class="menu-text">
@@ -76,30 +76,35 @@
 </span>
                             </a>
 <ul class="submenu">
-<?php $seccion = \Session::get('seccion_actual');if ($seccion === "editmenu") {echo "<li class='active open' style='text-align: left;'>";} else {echo "<li style='text-align: left;'>";}?><a href="<?php echo e(URL::to('/admin/editmenu/')); ?>">
+<?php $seccion = \Session::get('seccion_actual');if ($seccion === "editmenu") {echo "<li class='active open' style='text-align: left;'>";} else {echo "<li style='text-align: left;'>";}?><a href="<?php echo e(URL::to('/admin/editmenu/{idmenu?}')); ?>">
 
                                         <i class="menu-icon fa fa-arrow-right">
                                         </i>
                                         <span class="menu-text">EDITOR MENU</span>
                                         </a>
 </li>
+<?php $seccion = \Session::get('seccion_actual');if ($seccion === "editincludecss") {echo "<li class='active open' style='text-align: left;'>";} else {echo "<li style='text-align: left;'>";}?><a href="<?php echo e(URL::to('/admin/editincludesstyles')); ?>">
+
+                                        <i class="menu-icon fa fa-arrow-right">
+                                        </i>
+                                        <span class="menu-text">CSS</span>
+                                        </a>
+</li>
+<?php $seccion = \Session::get('seccion_actual');if ($seccion === "editincludescripts") {echo "<li class='active open' style='text-align: left;'>";} else {echo "<li style='text-align: left;'>";}?><a href="<?php echo e(URL::to('/admin/editincludescripts')); ?>">
+
+                                        <i class="menu-icon fa fa-arrow-right">
+                                        </i>
+                                        <span class="menu-text">SCRIPTS</span>
+                                        </a>
+</li>
+<?php $seccion = \Session::get('seccion_actual');if ($seccion === "asdf") {echo "<li class='active open' style='text-align: left;'>";} else {echo "<li style='text-align: left;'>";}?><a href="<?php echo e(URL::to('afsdf')); ?>">
+
+                                        <i class="menu-icon fa asdfasdf">
+                                        </i>
+                                        <span class="menu-text">asdf</span>
+                                        </a>
+</li>
 </ul></li>
-<?php $seccion = \Session::get('seccion_actual');if ( $seccion === "editincludescripts") {echo "<li class='active open' style='text-align: left;'>";} else {echo "<li style='text-align: left;'>";}?><a  href="/admin/editincludescripts">
-    <i class="menu-icon fa fa-envelope">
-                                </i>
-                                <span class="menu-text">
-		SCRIPTS
-</span>
-                            </a>
-</li>
-<?php $seccion = \Session::get('seccion_actual');if ( $seccion === "editincludescss") {echo "<li class='active open' style='text-align: left;'>";} else {echo "<li style='text-align: left;'>";}?><a  href="/admin/editincludesstyles">
-    <i class="menu-icon fa fa-arrow-right">
-                                </i>
-                                <span class="menu-text">
-		CSS
-</span>
-                            </a>
-</li>
 <?php $seccion = \Session::get('seccion_actual');if ( $seccion === "Usuario") {echo "<li class='active open' style='text-align: left;'>";} else {echo "<li style='text-align: left;'>";}?><a  href="/Usuario">
     <i class="menu-icon fa fa-user">
                                 </i>

@@ -120,7 +120,7 @@
                                                     </a>
                                                 </td>
                                                 <td class="hidden-480">
-                                                    @if ($anu->activo == 0)
+                                                    @if ($anu->activo == 1)
                                                     <span class="label label-sm label-danger">
                                                         Inactivo
                                                     </span>

@@ -46,6 +46,144 @@ trait trait1
         return ($menu);
     }
 
+    public function MenuMultinivel($idmenu)
+    {
+        $i     = 0;
+        $items = null;
+        $this->RutaCompletaSeccion(75);
+        $menusitems=DB::table('menuitem')
+                ->where('idmenuitem_padre', '=', 0)
+                ->where('idmenu','=',$idmenu)
+                ->orderBy('orden','asc')
+                ->get();
+        $menu=null;
+            if(count($menusitems)>0)
+            {
+                foreach ($menusitems as $mitem) {
+
+                    $ruta="";
+                    $i += 1;
+                    $submenu=null;
+                    $menu[$i] = array(
+                        "idmenuitem"=>$mitem->idmenuitem,
+                        "idmenu"=>$mitem->idmenu,
+                        "idmenuitem_padre"=>$mitem->idmenuitem_padre,
+                        "Titulo"   => $mitem->Titulo,
+                        "Ruta"     => $mitem->Ruta,
+                        "sesion"   => $mitem->session,
+                        "imagen"   => $mitem->imagen,
+                        "guardar"  => $mitem->guardar,
+                        "path"     => $this->PathMenuItem($mitem->idmenuitem),
+                        "seccion"  => $this->RutaCompletaSeccion($mitem->idmenuitem,$ruta),
+                        "items"    => $this->SubMenus($submenu,$mitem->idmenuitem),
+                    );
+                }
+                //$menu["subitems"]=$i;
+            }        
+            else
+            {
+                //$menu["subitems"]=0;
+            }
+        return $menu;
+    }
+
+    public function SubMenus($menu,$idmenuitem_padre)
+    {
+        $i     = 0;
+        $items = null;
+        $menusitems=DB::table('menuitem')
+                ->where('idmenuitem_padre', '=', $idmenuitem_padre)
+                ->orderBy('orden','asc')
+                ->get();
+            if(count($menusitems)>0)
+            {
+                $i=0;
+                foreach ($menusitems as $mitem) {
+                    $i += 1;
+                    $submenu=null;
+                    $ruta="";
+                    $menu[$i] = array(
+                        "idmenuitem"=>$mitem->idmenuitem,
+                        "idmenu"=>$mitem->idmenu,
+                        "idmenuitem_padre"=>$mitem->idmenuitem_padre,
+                        "Titulo"   => $mitem->Titulo,
+                        "Ruta"     => $mitem->Ruta,
+                        "sesion"   => $mitem->session,
+                        "imagen"   => $mitem->imagen,
+                        "guardar"  => $mitem->guardar,
+                        "path"     => $this->PathMenuItem($mitem->idmenuitem),
+                        "seccion"  => $this->RutaCompletaSeccion($mitem->idmenuitem,$ruta),
+                    );
+                    $menu[$i]["items"]=$this->SubMenus($submenu,$mitem->idmenuitem);
+                }            
+                //$menu["subitems"]=$i;
+                //$menu["guardar"]=$menus->guardar;
+            }
+            else
+            {
+                //$menu["subitems"]=0;
+            }
+        return $menu;
+    }
+    public function PathMenuItem($idmenuitem)
+    {
+        $path[]=null;
+        $menuitem=DB::table('menuitem')
+                ->where('idmenuitem', '=', $idmenuitem)
+                ->first();        
+        if($menuitem->idmenuitem_padre!=0)       
+        {
+            $path=$this->PathRecurMenuItem($menuitem->idmenuitem_padre,$path);
+        }
+        $path[]=$menuitem->Titulo;
+        unset($path[0]);
+        return $path;
+    }
+
+    public function PathRecurMenuItem($idmenuitem,$path)
+    {
+        $menuitem=DB::table('menuitem')
+                ->where('idmenuitem', '=', $idmenuitem)
+                ->first();        
+        if($menuitem->idmenuitem_padre!=0)
+        {
+            $path=$this->PathRecurMenuItem($menuitem->idmenuitem_padre,$path);
+        }
+        $path[]=$menuitem->Titulo;
+
+        return $path;
+    }
+    public function RutaCompletaSeccion($idmenuitem)
+    {
+        $ruta="";
+        $menusitem=DB::table('menuitem')
+                ->where('idmenuitem', '=', $idmenuitem)
+                ->first(); 
+                $ruta.=$menusitem->session."/";
+                $ruta.=$this->rutaSeccion($idmenuitem);
+        $carpetas=explode("/",$ruta);
+        return $carpetas;
+    }
+    public function rutaSeccion($idmenuitem)
+    {
+        $ruta="";
+        $menusitems=DB::table('menuitem')
+                ->where('idmenuitem_padre', '=', $idmenuitem)
+                ->get(); 
+                //dd($menusitems);      
+           if(count($menusitems)>0)
+            {
+                foreach ($menusitems as $mitem) {
+                 $ruta.= $this->rutaSeccion($mitem->idmenuitem);
+                 $ruta.=$mitem->session."/";
+                }            
+                //$menu["subitems"]=$i;
+                //$menu["guardar"]=$menus->guardar;
+            //dd($ruta);
+            }
+        return $ruta;
+    }
+
     public function menuToFile($idmenu)
     {
         switch ($idmenu) {

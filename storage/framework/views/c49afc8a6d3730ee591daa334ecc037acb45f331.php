@@ -4,6 +4,11 @@
         </script>
         <script src="<?php echo e(asset('/js/bootstrap.min.js')); ?>">
         </script>
+        <script src="<?php echo e(asset('/js/bootstrap-select.js')); ?>">
+        </script>
+        <script src="<?php echo e(asset('/js/bootstrap-dropdown.js')); ?>">
+        </script>
+
         <!-- page specific plugin scripts -->
         <!--[if lte IE 8]>
           <script src="assets/js/excanvas.min.js"></script>

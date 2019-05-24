@@ -137,7 +137,6 @@ return view('anuncio.index', ["anuncios" => $anuncios, "searchText" => $query]);
 
     public function update(Request $request, $id)
     {
-
         //$data    = $request->get('ch');
         $anuncio = new AnuncioProgramado;
 
@@ -152,9 +151,9 @@ return view('anuncio.index', ["anuncios" => $anuncios, "searchText" => $query]);
         $anuncio->idestatura  = $request->get('idestatura');
 
         if ($request->get('activo')) {
-            $anuncio->activo = 1;
+            $anuncio->activo =0;
         } else {
-            $anuncio->activo = 0;
+            $anuncio->activo = 1;
         }
 
         switch (Auth::user()->stringRol->nombre) {

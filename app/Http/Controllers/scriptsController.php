@@ -14,6 +14,7 @@ class scriptsController extends Controller
 
 
 	public function readfileincludesscripts($zona=1){
+        \Session::put('seccion_actual', "editincludescripts");
     switch ($zona) {
       case 1:
         $rutaViewIncludeJs="layouts/scripts/scripts.blade.php";
@@ -29,7 +30,6 @@ class scriptsController extends Controller
 
 		$rutaPublicJs = public_path()."/js/";
 
-	    \Session::put('seccion_actual', "scripts");
 		 
  $items = null;
  $i=0;
@@ -95,6 +95,7 @@ natsort($items);
 
 
     public function writefileincludescripts(request $request){
+        \Session::put('seccion_actual', "editincludescripts");
       $files                 = $request->get('selfile');
       $view_path = Config::get('view.paths');
       $ficheroinclude = $view_path[0]."/layouts/scripts/scripts1.blade.php";

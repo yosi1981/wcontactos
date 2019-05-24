@@ -102,18 +102,38 @@
     </div>
 </div>
 <div class="row">
-    <div class="form-group col-md-12">
-        <?php echo e(Form::label('activo', 'Activo?',array('class'=>'col-md-3 control-label no-padding-right'))); ?>
+    <div class="form-group col-md-12" >
+                                    <div class="col-md-3">
+                                    </div>
+                                    <label class="col-md-9" style="padding-left:  0px;">
+        <?php if($anuncioP->activo==0): ?>
+          <?php echo e(Form::checkbox('activo', 0,true,array('class'=>'ace'))); ?>
 
-      <?php if($anuncioP->activo==1): ?>
-          <?php echo e(Form::checkbox('activo', '1',true)); ?>
+        <?php else: ?>
+          <?php echo e(Form::checkbox('activo', 1,false,array('class'=>'ace'))); ?>
 
-      <?php else: ?>
-          <?php echo e(Form::checkbox('activo', '0',false)); ?>
-
-      <?php endif; ?>
+        <?php endif; ?>
+                                      <span class="lbl " > Mostrar mensaje "ULTIMO DIA"</span>
+                                    </label>
     </div>
 </div>
+<div class="row">
+    <div class="form-group col-md-12" >
+                                    <div class="col-md-3">
+                                    </div>
+                                    <label class="col-md-9" style="padding-left:  0px;">
+        <?php if($anuncioP->activo==0): ?>
+          <?php echo e(Form::checkbox('activo', 0,true,array('class'=>'ace'))); ?>
+
+        <?php else: ?>
+          <?php echo e(Form::checkbox('activo', 1,false,array('class'=>'ace'))); ?>
+
+        <?php endif; ?>
+                                      <span class="lbl " > Mostrar mensaje "ULTIMO DIA"</span>
+                                    </label>
+    </div>
+</div>
+
 
 <div class="row">
     <div class="form-group col-md-12">
@@ -155,6 +175,9 @@
 }
 </style>
 <script>
+
+
+
     function getLocalidadesAP()
         {
             var url="<?php echo e(URL::to('/admin/getAnunciosProLocal')); ?>"+"/"+"<?php echo e($anuncioP->idanuncio_programado); ?>";
@@ -166,12 +189,12 @@
             })
         }
 
-  $(document).ready(function() {
-        $("#widget-box-3").fadeIn();
-        TweenMax.from("#widget-box-3", 0.4, { scale: 0, ease: Sine.easeInOut });
-        TweenMax.to("#widget-box-3", 0.4, { scale: 1, ease: Sine.easeInOut });
-        $('.modal').appendTo("body");
-        getLocalidadesAP();
+        $(document).ready(function() {
+            $("#widget-box-3").fadeIn();
+            TweenMax.from("#widget-box-3", 0.4, { scale: 0, ease: Sine.easeInOut });
+            TweenMax.to("#widget-box-3", 0.4, { scale: 1, ease: Sine.easeInOut });
+            $('.modal').appendTo("body");
+            getLocalidadesAP();
         });
 
           $('#btnAddAnunProLocal').on('click',function(e){

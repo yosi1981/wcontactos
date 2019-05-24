@@ -75,7 +75,10 @@
                                         {{$paquete->UserAnunciante->Usuario->email}}
                                     </td>
                                     <td>
-                                        {{$paquete->fechaUlt}}
+                                        <?php
+                                            $fecha = date("d-m-Y", strtotime($paquete->fechaUlt));
+                                            ?>
+                                        {{$fecha}}
                                     </td>
                                     <td>
                                         {{$paquete->estado}}

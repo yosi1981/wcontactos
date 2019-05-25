@@ -77,6 +77,41 @@
 						</li>
 			</ol>
 		</div>
+@else
+		<div class="menu ">
+			<ol class="menu-list">
+						<li class="menu-item menu2-item" >
+							<div class="menu-handle menu2-handle" >
+								<i class="normal-icon ace-icon fa fa-folder gree bigger-130"></i>
+							</div>
+							<div class="menu2-content">
+							Añadir item
+								<i data-idmenu="{{$idmenu}}" data-idmenuitem="0" class="actualizar crear  fa fa-folder  bigger-130" aria-hidden="true"></i>
+							</div>
+						</li>
+						<li class="menu-item menu2-item" >
+							<a class="speciala" href="">
+								<div class="menu-handle menu2-handle" >
+									<i class="normal-icon ace-icon fa fa-save  bigger-130"></i>
+								</div>
+								<div class="menu2-content">
+								Guardar cambios
+								</div>
+							</a>
+						</li>
+						<li class="menu-item menu2-item" >
+							<a class="speciala" href="/admin/dashboard">
+								<div class="menu-handle menu2-handle" >
+									<i class="normal-icon ace-icon fa fa-reply  bigger-130"></i>
+								</div>
+								<div class="menu2-content">
+								Volver al Dashboard
+								</div>
+							</a>
+						</li>
+
+			</ol>
+		</div>
 @endif
 
 
@@ -133,6 +168,7 @@
 }
 .menu {
     margin: 0;
+    margin-right:5px;
     max-width: 325px;
     line-height: 20px;
 }

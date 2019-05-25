@@ -149,10 +149,10 @@ class menuController extends Controller
 
     public function showmenu($idmenu,$edit){
         $menu=null;
-        $menu      = $this->MenuMultinivel(1);
+        $menu      = $this->MenuMultinivel($idmenu);
         //$menu      = $this->MenuIzquierdo($idmenu);
     	//$salida = view('layouts.includes.barraizda',["menu"=>$menu,"idmenu"=>$idmenu,"edit"=>true])->render();
-        $salida=view('pruebas.menumultinivel.menuprueba',["menu"=>$menu])->render();
+        $salida=view('pruebas.menumultinivel.menuprueba',["menu"=>$menu,"idmenu"=>$idmenu])->render();
         return response()->json($salida);    		
     }
 }

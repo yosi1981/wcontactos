@@ -186,7 +186,7 @@ h6.bigger {
 }
 ol, ul {
     padding: 0;
-    margin: 0 0 10px 25px
+    margin: 5px 0px 5px 5px;
 }
 ol.margin-5, ul.margin-5 {
     margin-left: 5px
@@ -4485,7 +4485,7 @@ body.mob-safari .sidebar.sidebar-fixed {
     bottom: 0
 }
 .sidebar~.footer .footer-inner {
-    left: 190px
+    left: 315px
 }
 @media (min-width:992px) {
     .sidebar.compact~.footer .footer-inner {
@@ -4595,7 +4595,7 @@ body.mob-safari .sidebar.sidebar-fixed {
 .footer .footer-inner .footer-content {
     position: absolute;
     left: 12px;
-    right: 12px;
+    right: 0px;
     bottom: 4px;
     padding: 8px;
     line-height: 36px;

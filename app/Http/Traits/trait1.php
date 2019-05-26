@@ -50,7 +50,6 @@ trait trait1
     {
         $i     = 0;
         $items = null;
-        $this->RutaCompletaSeccion(75);
         $menusitems=DB::table('menuitem')
                 ->where('idmenuitem_padre', '=', 0)
                 ->where('idmenu','=',$idmenu)
@@ -72,6 +71,7 @@ trait trait1
                         "Ruta"     => $mitem->Ruta,
                         "sesion"   => $mitem->session,
                         "imagen"   => $mitem->imagen,
+                        "color"    => $mitem->color,
                         "guardar"  => $mitem->guardar,
                         "path"     => $this->PathMenuItem($mitem->idmenuitem),
                         "seccion"  => $this->RutaCompletaSeccion($mitem->idmenuitem,$ruta),
@@ -110,6 +110,7 @@ trait trait1
                         "Ruta"     => $mitem->Ruta,
                         "sesion"   => $mitem->session,
                         "imagen"   => $mitem->imagen,
+                        "color"    => $mitem->color,
                         "guardar"  => $mitem->guardar,
                         "path"     => $this->PathMenuItem($mitem->idmenuitem),
                         "seccion"  => $this->RutaCompletaSeccion($mitem->idmenuitem,$ruta),
@@ -162,6 +163,7 @@ trait trait1
                 $ruta.=$menusitem->session."/";
                 $ruta.=$this->rutaSeccion($idmenuitem);
         $carpetas=explode("/",$ruta);
+        array_pop($carpetas);
         return $carpetas;
     }
     public function rutaSeccion($idmenuitem)

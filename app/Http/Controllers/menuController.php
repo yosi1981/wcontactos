@@ -104,6 +104,7 @@ class menuController extends Controller
     	$mnuitem->Ruta=$request->get('ruta2');
     	$mnuitem->session=$request->get('session');
     	$mnuitem->imagen=$request->get('imagen2');
+        $mnuitem->color=$request->get('color');
         $mnuitem->guardar=1;
         $mnuitem->orden=$count+1;
     	$mnuitem->save();
@@ -123,6 +124,7 @@ class menuController extends Controller
     	$mnuitem->Ruta=$request->get('ruta2');
     	$mnuitem->session=$request->get('session');
     	$mnuitem->imagen=$request->get('imagen2');
+        $mnuitem->color=$request->get('color');
         $mnuitem->guardar=1;
     	$mnuitem->save();
         $menu = menu::findOrFail($mnuitem->idmenu);

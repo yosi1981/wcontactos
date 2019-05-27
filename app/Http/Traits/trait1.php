@@ -309,7 +309,163 @@ trait trait1
             fputs($fp,$fichero);
         fclose($fp);
     }
+   public function menuToFileNew($idmenu)
+    {
+        switch ($idmenu) {
+            case 1:
+                $tuser="admin";
+                break;
+            case 2:
+                $tuser="anunciante";
+                break;
+            case 3:
+                $tuser="adminProvincia";
+                break;
+            case 4:
+                $tuser="colaborador";
+                break;
+        }
 
+        $menuizquierdo_path=base_path().'/resources/views/layouts/includes/'.$tuser.'/barraizda1.blade.php';
+        $menu=$this->MenuMultinivel($idmenu);
+        $seccion = \Session::get('seccion_actual');
+        $cabecera="
+        <div class=\"menu \">
+            <ol class=\"menu-list\">";
+            $strmitem="";
+        if($menu){
+                $mnuli="";
+            foreach($menu as $mitem){
+                $cond   = array();
+                array_push($cond,$mitem['seccion']);
+
+                $mnuli.="<?php \$i=0;
+                        \$total=count(\$menu);
+                        ?>
+                        <li class=\"menu-item menu2-item\" >";
+                if($mitem["items"]==0)
+                {
+                    $mnuli.="<a class=\"speciala\" href=\"".$mitem["Ruta"]."\">";
+                }
+                $mnuli.="     <div class=\"menu-handle menu2-handle\" >
+                                <i class=\"normal-icon ace-icon fa ".$mitem['imagen']." bigger-130 sombra\" style=\"color:".$mitem['color']."\"></i>
+                            </div>
+                            <div class=\"menu2-content\">";
+                $mnuli.="<?php \$seccion = \Session::get('seccion_actual');?>";
+                if ($mitem["items"]) {
+                    $primero=true;
+                    $condicion="";
+                    for ($ii=0; $ii < count($cond) ; $ii++) { 
+                        if($primero==false){
+                            $condicion.=" or ";
+                        }
+                        else
+                        {
+                            $primero=false;
+                        }
+                            $condicion.=" \$seccion === \"".$cond[0][$ii]."\"";
+                    }
+                    $mnuli.="<?php if (". $condicion . ")";
+                    $mnuli.="{
+                            echo \"<i style='position:relative;left:-5px;' class='plus  fa fa-minus sombra '  aria-hidden='true' ></i>\";
+                            }
+                            else";
+                    $mnuli.="{
+                            echo \"<i style='position:relative;left:-5px;' class='plus  fa fa-plus sombra  '  aria-hidden='true' style='text-shadow: 1px 2px 3px #696;'></i>\";
+                            }
+                            ?>";
+
+                    $mnuli.=$mitem["Titulo"];
+                    $mnuli.="</div>";   
+                    $mnuli.="<ol class=\"menu-list\" style=\"display:none;\">";
+                        foreach($mitem["items"] as $mitem){
+                            $cond   = array();
+                            array_push($cond,$mitem['seccion']);
+
+                            $mnuli.="<?php \$i=0;
+                                    \$total=count(\$menu);
+                                    ?>
+                                    <li class=\"menu-item menu2-item\" >
+                                        <div class=\"menu-handle menu2-handle\" >
+                                            <i class=\"normal-icon ace-icon fa ".$mitem['imagen']." bigger-130 sombra\" style=\"color:".$mitem['color']."\"></i>
+                                        </div>
+                                        <div class=\"menu2-content\">";
+                            $mnuli.="<?php \$seccion = \Session::get('seccion_actual');?>";
+                            if ($mitem["items"]) {
+                                $primero=true;
+                                $condicion="";
+                                for ($ii=0; $ii < count($cond) ; $ii++) { 
+                                    if($primero==false){
+                                        $condicion.=" or ";
+                                    }
+                                    else
+                                    {
+                                        $primero=false;
+                                    }
+                                        $condicion.=" \$seccion === \"".$cond[0][$ii]."\"";
+                                }
+                                $mnuli.="<?php if (". $condicion . ")";
+                                $mnuli.="{
+                                        echo \"<i style='position:relative;left:-5px;' class='plus  fa fa-minus sombra '  aria-hidden='true' ></i>\";
+                                        }
+                                        else";
+                                $mnuli.="{
+                                        echo \"<i style='position:relative;left:-5px;' class='plus  fa fa-plus sombra  '  aria-hidden='true' style='text-shadow: 1px 2px 3px #696;'></i>\";
+                                        }
+                                        ?>";
+                            } 
+                            $mnuli.=$mitem["Titulo"];
+                            $mnuli.="</div>";
+                            $mnuli.="</li>";
+                        }
+                        $mnuli.="</ol>";
+                } 
+                else
+                {
+                   $mnuli.=$mitem["Titulo"];
+                    $mnuli.="</div>";  
+                    if($mitem["items"]==0)
+                    {
+                        $mnuli.="</a>";
+                    }                    
+                }
+                $mnuli.="</li>";
+            }
+                $pie="  </ol>
+                        </div>";
+                $script="
+        <script type='text/javascript'>
+            jQuery(function($){
+                $('.menu2-content ,.menu2-handle').on('mouseenter',function(e){
+                    var padre=$(this).parent();
+                    padre.find('.opciones').first().attr('style','display:block');
+                });
+                $('.menu2-content ,.menu2-handle').on('mouseleave',function(e){
+                    var padre=$(this).parent();
+                    padre.find('.opciones').first().attr('style','display:none');
+                });
+                $('.plus').on('click',function(e){
+                    var actual=$(this).parent('.menu2-content').next('ol');
+                    if($(this).hasClass('fa fa-plus')){
+                        $(this).removeClass().addClass('plus').addClass('fa fa-minus sombra');
+                        actual.removeAttr('style').attr('style','display:block');
+                    }
+                    else
+                    {
+                        $(this).removeClass().addClass('plus').addClass('fa fa-plus sombra');
+                        actual.removeAttr('style').attr('style','display:none');;                       
+                    }
+                });
+
+            });
+        </script>
+                ";
+        $fichero=$cabecera.$mnuli.$pie.$script;
+        $fp = fopen($menuizquierdo_path, "w");
+            fputs($fp,$fichero);
+        fclose($fp);
+        }
+    }
     public function readIcons(){
         $textoUrlIconst = file_get_contents("https://fontawesome.com/v4.7.0/icons/");
         $coincidencia="/<i\s+class.*=.*\"fas?\s+(fas?-(.*))\"\s+/m";

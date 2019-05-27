@@ -13,4 +13,5 @@
 <link class="ace-main-stylesheet" href="<?php echo e(asset('/css/ace-part2.min.css')); ?>" rel="stylesheet"/> 
 <!--<link class="ace-main-stylesheet" href="<?php echo e(asset('/css/ace.min.css')); ?>" rel="stylesheet"/>-->
  <link class="ace-main-stylesheet" href="<?php echo e(asset('/css/ace.min.css')); ?>"  rel="stylesheet"/>
+ <link class="ace-main-stylesheet" href="<?php echo e(asset('/css/menuNew.css')); ?>"  rel="stylesheet"/>
  

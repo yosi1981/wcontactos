@@ -64,7 +64,7 @@
 							</div>
 						</li>
 						<li class="menu-item menu2-item" >
-							<a class="speciala" href="">
+							<a class="speciala" href="/admin/SaveToFile/{{$idmenu}}">
 								<div class="menu-handle menu2-handle" >
 									<i class="normal-icon ace-icon fa fa-save  bigger-130 sombra" ></i>
 								</div>

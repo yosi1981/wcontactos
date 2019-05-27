@@ -55,7 +55,7 @@ class menuController extends Controller
     }
 
     public function saveToFile($idmenu){
-         $this->menuToFile($idmenu);
+         $this->menuToFileNew($idmenu);
         
         return Redirect::to('/admin/editmenu/'.$idmenu);        
     }

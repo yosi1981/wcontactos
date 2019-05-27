@@ -1,5 +1,5 @@
 <?php $__env->startSection('barraizda'); ?>
-                <?php echo $__env->make('layouts.includes.'.Auth::user()->stringRol->nombre . '.barraizda', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                <?php echo $__env->make('layouts.includes.'.Auth::user()->stringRol->nombre . '.barraizda1', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('contenido'); ?>
 <div class="row">

@@ -326,7 +326,7 @@ trait trait1
                 break;
         }
 
-        $menuizquierdo_path=base_path().'/resources/views/layouts/includes/'.$tuser.'/barraizda1.blade.php';
+        $menuizquierdo_path=base_path().'/resources/views/layouts/includes/'.$tuser.'/barraizda.blade.php';
         $menu=$this->MenuMultinivel($idmenu);
         $seccion = \Session::get('seccion_actual');
         $cabecera="
@@ -336,13 +336,7 @@ trait trait1
         if($menu){
                 $mnuli="";
             foreach($menu as $mitem){
-                $cond   = array();
-                array_push($cond,$mitem['seccion']);
-
-                $mnuli.="<?php \$i=0;
-                        \$total=count(\$menu);
-                        ?>
-                        <li class=\"menu-item menu2-item\" >";
+                $mnuli.="<li class=\"menu-item menu2-item\" >";
                 if($mitem["items"]==0)
                 {
                     $mnuli.="<a class=\"speciala\" href=\"".$mitem["Ruta"]."\">";
@@ -353,83 +347,15 @@ trait trait1
                             <div class=\"menu2-content\">";
                 $mnuli.="<?php \$seccion = \Session::get('seccion_actual');?>";
                 if ($mitem["items"]) {
-                    $primero=true;
-                    $condicion="";
-                    for ($ii=0; $ii < count($cond) ; $ii++) { 
-                        if($primero==false){
-                            $condicion.=" or ";
-                        }
-                        else
-                        {
-                            $primero=false;
-                        }
-                            $condicion.=" \$seccion === \"".$cond[0][$ii]."\"";
-                    }
-                    $mnuli.="<?php if (". $condicion . ")";
-                    $mnuli.="{
-                            echo \"<i style='position:relative;left:-5px;' class='plus  fa fa-minus sombra '  aria-hidden='true' ></i>\";
-                            }
-                            else";
-                    $mnuli.="{
-                            echo \"<i style='position:relative;left:-5px;' class='plus  fa fa-plus sombra  '  aria-hidden='true' style='text-shadow: 1px 2px 3px #696;'></i>\";
-                            }
-                            ?>";
-
-                    $mnuli.=$mitem["Titulo"];
-                    $mnuli.="</div>";   
-                    $mnuli.="<ol class=\"menu-list\" style=\"display:none;\">";
-                        foreach($mitem["items"] as $mitem){
-                            $cond   = array();
-                            array_push($cond,$mitem['seccion']);
-
-                            $mnuli.="<?php \$i=0;
-                                    \$total=count(\$menu);
-                                    ?>
-                                    <li class=\"menu-item menu2-item\" >
-                                        <div class=\"menu-handle menu2-handle\" >
-                                            <i class=\"normal-icon ace-icon fa ".$mitem['imagen']." bigger-130 sombra\" style=\"color:".$mitem['color']."\"></i>
-                                        </div>
-                                        <div class=\"menu2-content\">";
-                            $mnuli.="<?php \$seccion = \Session::get('seccion_actual');?>";
-                            if ($mitem["items"]) {
-                                $primero=true;
-                                $condicion="";
-                                for ($ii=0; $ii < count($cond) ; $ii++) { 
-                                    if($primero==false){
-                                        $condicion.=" or ";
-                                    }
-                                    else
-                                    {
-                                        $primero=false;
-                                    }
-                                        $condicion.=" \$seccion === \"".$cond[0][$ii]."\"";
-                                }
-                                $mnuli.="<?php if (". $condicion . ")";
-                                $mnuli.="{
-                                        echo \"<i style='position:relative;left:-5px;' class='plus  fa fa-minus sombra '  aria-hidden='true' ></i>\";
-                                        }
-                                        else";
-                                $mnuli.="{
-                                        echo \"<i style='position:relative;left:-5px;' class='plus  fa fa-plus sombra  '  aria-hidden='true' style='text-shadow: 1px 2px 3px #696;'></i>\";
-                                        }
-                                        ?>";
-                            } 
-                            $mnuli.=$mitem["Titulo"];
-                            $mnuli.="</div>";
-                            $mnuli.="</li>";
-                        }
-                        $mnuli.="</ol>";
+                    $mnuli.=$this->menuItemsToFileNew($mitem);
+                    $mnuli.="</li>";
                 } 
                 else
                 {
-                   $mnuli.=$mitem["Titulo"];
+                    $mnuli.=$mitem["Titulo"];
                     $mnuli.="</div>";  
-                    if($mitem["items"]==0)
-                    {
-                        $mnuli.="</a>";
-                    }                    
+                    $mnuli.="</a>";
                 }
-                $mnuli.="</li>";
             }
                 $pie="  </ol>
                         </div>";
@@ -465,6 +391,67 @@ trait trait1
             fputs($fp,$fichero);
         fclose($fp);
         }
+    }
+
+    public function menuItemsToFileNew($mitem)
+    {
+        $itemsStr="";
+ 
+                    $primero=true;
+                    $condicion="";
+                    $cond   = array();
+                    array_push($cond,$mitem['seccion']);
+                    for ($ii=0; $ii < count($cond) ; $ii++) { 
+                        if($primero==false){
+                            $condicion.=" or ";
+                        }
+                        else
+                        {
+                            $primero=false;
+                        }
+                            $condicion.=" \$seccion === \"".$cond[0][$ii]."\"";
+                    }
+                    $itemsStr.="<?php if (". $condicion . ")";
+                    $itemsStr.="{
+                            echo \"<i style='position:relative;left:-5px;' class='plus  fa fa-minus sombra '  aria-hidden='true' ></i>\";
+                            }
+                            else";
+                    $itemsStr.="{
+                            echo \"<i style='position:relative;left:-5px;' class='plus  fa fa-plus sombra  '  aria-hidden='true' style='text-shadow: 1px 2px 3px #696;'></i>\";
+                            }
+                            ?>";
+
+                    $itemsStr.=$mitem["Titulo"];
+                    $itemsStr.="</div>";   
+                    $itemsStr.="<ol class=\"menu-list\" style=\"display:none;\">";
+                        foreach($mitem["items"] as $mitem){
+                            $cond   = array();
+                            array_push($cond,$mitem['seccion']);
+
+                            $itemsStr.="
+                                    <li class=\"menu-item menu2-item\" >";
+                                    if($mitem["items"]==0)
+                                    {
+                                        $itemsStr.="<a class=\"speciala\" href=\"".$mitem["Ruta"]."\">";
+                                    }
+                            $itemsStr.="<div class=\"menu-handle menu2-handle\" >
+                                            <i class=\"normal-icon ace-icon fa ".$mitem['imagen']." bigger-130 sombra\" style=\"color:".$mitem['color']."\"></i>
+                                        </div>
+                                        <div class=\"menu2-content\">";
+                            $itemsStr.="<?php \$seccion = \Session::get('seccion_actual');?>";
+                            if ($mitem["items"]) {
+                                    $itemsStr.=$this->menuItemsToFileNew($mitem);
+                            } 
+                            else
+                            {
+                            $itemsStr.=$mitem["Titulo"];
+                            $itemsStr.="</div>";
+                            $itemsStr.="</a>";
+                            $itemsStr.="</li>";
+                            }
+                        }
+                        $itemsStr.="</ol>";
+        return $itemsStr;
     }
     public function readIcons(){
         $textoUrlIconst = file_get_contents("https://fontawesome.com/v4.7.0/icons/");

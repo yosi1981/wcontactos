@@ -265,7 +265,7 @@ box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
   	width:44px;
   	left:-3px;
   	height:44px;
-  	top:-8px;
+  	top:-9px;
 box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
 }
 .menu-item:hover>.menu2-handle>i {
@@ -292,7 +292,7 @@ box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
   	width:44px;
   	left:-3px;
   	height:44px;
-  	top:-8px;
+  	top:-9px;
 	box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
 }
 .speciala:hover>.menu2-handle>i {
